@@ -23,17 +23,18 @@ Here are a few photos I took that I personally like:
 ---
 
 <div id="hero-rotating-text"
-     style="font-size:1.05rem; margin-top:8px; color:#555; transition: opacity 0.5s ease;">
+     style="font-size:3rem; margin-top:8px; color:#555; transition: opacity 0.5s ease;">
 </div>
 
 {% raw %}
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const lines = [
-    "I build embedded systems and firmware.",
-    "I design STM32 Bootloaders and IAP upgrade systems.",
-    "I work on robotics and intelligent agricultural equipment.",
-    "I enjoy photography and visual storytelling."
+    "Build what you wish to see in the world."
+    "Small steps, constant progress."
+    "Stay curious. Stay building."
+    "Precision in mind, courage in practice."
+    "Make it work. Make it better."
   ];
 
   const el = document.getElementById("hero-rotating-text");
