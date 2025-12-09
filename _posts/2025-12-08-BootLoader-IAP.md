@@ -1,5 +1,5 @@
 ---
-title: "TSTM32 Bootloader 与 IAP 升级完整解决方案（小白也能看懂加强版）"
+title: "STM32 Bootloader 与 IAP 升级完整解决方案（小白也能看懂加强版）"
 date: 2025-12-08 10:00:00 +0800
 categories: [Embedded, Bootloader]
 tags: [STM32, IAP, Flash]
