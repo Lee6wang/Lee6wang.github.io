@@ -1,5 +1,8 @@
 ---
 layout: tags
 icon: fas fa-tags
-order: 2
+order: 4
 ---
+
+{% include tags.html %}
+
