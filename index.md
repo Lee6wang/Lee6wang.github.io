@@ -1,18 +1,26 @@
 ---
-layout: home
+layout: page
+title: Home
+permalink: /
 ---
 # 👋 Hi, I'm Haitao Li
 
 **Embedded Systems & Robotics Developer**  
 Master student at **Beihang University (BUAA)**, Instrument Science & Technology.
 
-I work on:
-
-- STM32 firmware (HAL/LL, FreeRTOS)
-- Bootloader & IAP upgrade architecture
-- Motor control, CAN communication
-- Embedded AI & sensor fusion
+I focus on building reliable, real-time, and scalable systems in embedded firmware, robotics, and intelligent equipment.
 
 ---
 
-Below is a list of all recent posts.
+## 🔧 I work on
+
+- STM32 firmware (HAL/LL, FreeRTOS)  
+- Bootloader & IAP upgrade architectures  
+- Motor control, low-level drivers, CAN communication  
+- Embedded AI, perception and sensor fusion  
+
+---
+
+## 📝 Recent Posts
+
+{% include list.html %}
