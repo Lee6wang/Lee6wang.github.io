@@ -4,17 +4,16 @@ icon: fas fa-info-circle
 order: 1
 ---
 
-Hi! I’m **Haitao Li**, an embedded systems and robotics developer focusing on real-time firmware, intelligent control, and smart agricultural equipment.
+Hi! I'm **Haitao Li**, born in Hefei, Anhui, China. I received my bachelor's degree in **Mechanical Engineering** from **Hefei University of Technology** in 2025. I am currently pursuing a Master’s degree in **Instrument Science and Technology** at the School of Instrumentation Science and Opto-electronics Engineering, **Beihang University (BUAA)**.
 
-My current areas of interest include:
+My interests include:
 
-- STM32 firmware development (HAL / LL / FreeRTOS)
-- Bootloader & IAP upgrade systems for embedded devices
-- Motor control, board-level drivers, and control algorithms
-- CAN communication frameworks for modular embedded systems
-- Robotics and autonomous agricultural equipment (Agri-tech)
-- Edge AI deployment and embedded perception algorithms
+Embedded systems and firmware development (STM32 / FreeRTOS / Bootloader)
 
-I enjoy building clean, reliable, and scalable systems—whether it's a Bootloader for MCU field upgrades, a robotic motion controller, or experimental intelligent-agriculture applications.
+Mechatronics and control systems for intelligent equipment
 
-This site documents my projects, engineering notes, and thoughts as I grow as a developer and researcher.
+Robotics — perception, control, navigation, and system integration
+
+End-to-end hardware–software co-design and engineering implementation
+
+I enjoy understanding systems from the ground up and integrating hardware, firmware, and control algorithms into reliable and scalable solutions. This website serves as a record of my engineering journey, research exploration, and hands-on projects.
