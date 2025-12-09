@@ -21,3 +21,37 @@ Here are a few photos I took that I personally like:
 👉 To view the full collection, please visit the **[Photograph](/photograph/)** page.
 
 ---
+
+<div id="hero-rotating-text"
+     style="font-size:1.05rem; margin-top:8px; color:#555; transition: opacity 0.5s ease;">
+</div>
+
+{% raw %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const lines = [
+    "I build embedded systems and firmware.",
+    "I design STM32 Bootloaders and IAP upgrade systems.",
+    "I work on robotics and intelligent agricultural equipment.",
+    "I enjoy photography and visual storytelling."
+  ];
+
+  const el = document.getElementById("hero-rotating-text");
+  if (!el) return;
+
+  let idx = 0;
+
+  function update() {
+    el.style.opacity = 0;
+    setTimeout(function() {
+      el.textContent = lines[idx];
+      el.style.opacity = 1;
+      idx = (idx + 1) % lines.length;
+    }, 200);
+  }
+
+  update();
+  setInterval(update, 2600);
+});
+</script>
+{% endraw %}
