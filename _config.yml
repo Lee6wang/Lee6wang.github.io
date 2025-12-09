@@ -19,8 +19,6 @@ title: Haitao Li # the main title
 tagline: Embedded Systems & Robotics Developer # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Haitao Li’s personal website and technical blog — focusing on embedded systems,
-  STM32, robotics, agricultural intelligent equipment, and AI applications.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -78,6 +76,9 @@ analytics:
 pageviews:
   provider: # now only supports 'goatcounter'
 
+# Disable RSS feed
+feed:
+  enabled: false
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,

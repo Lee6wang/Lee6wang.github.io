@@ -13,6 +13,10 @@
 - type: rss
   icon: "fas fa-rss"
   noblank: true
+
+- type: wechat
+  icon: fab fa-weixin
+  url: /assets/images/wechat-qrcode.jpg
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon
