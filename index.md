@@ -1,7 +1,6 @@
 ---
 layout: home
 ---
-
 # 👋 Hi, I'm Haitao Li
 
 **Embedded Systems & Robotics Developer**  
