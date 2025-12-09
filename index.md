@@ -18,11 +18,12 @@ please visit the **[About](/about/)** page.
 I enjoy capturing light, seasons, and quiet moments.  
 Here are a few photos I took that I personally like:
 
+{% raw %}
 <style>
 .fade-in {
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transform: translateY(12px);
+  transition: opacity 1.1s ease-out, transform 1.1s ease-out;
 }
 
 .fade-in.show {
@@ -33,14 +34,15 @@ Here are a few photos I took that I personally like:
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const elements = document.querySelectorAll('.fade-in');
-  elements.forEach((el, index) => {
+  const items = document.querySelectorAll('.fade-in');
+  items.forEach((item, index) => {
     setTimeout(() => {
-      el.classList.add('show');
-    }, 200 * index); // stagger animation (200ms between each photo)
+      item.classList.add('show');
+    }, 200 * index);
   });
 });
 </script>
+{% endraw %}
 
 <div style="margin-top: 20px;">
 
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     padding: 10px;
     margin-bottom: 24px;
   ">
-    <img src="/assets/img/photo1.jpg" alt="Photo 1"
+    <img src="/assets/images/photo1.jpg" alt="Photo 1"
          style="width: 100%; border-radius: 10px; display: block;">
   </div>
 
@@ -62,10 +64,9 @@ document.addEventListener("DOMContentLoaded", function() {
     padding: 10px;
     margin-bottom: 8px;
   ">
-    <img src="/assets/img/photo2.jpg" alt="Photo 2"
+    <img src="/assets/images/photo2.jpg" alt="Photo 2"
          style="width: 100%; border-radius: 10px; display: block;">
   </div>
 
 </div>
-
 ---
