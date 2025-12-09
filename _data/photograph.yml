@@ -1,11 +1,23 @@
-- file: /assets/photograph/photo1.jpg
-  taken_at: 2024-10-01
-  title: "Autumn morning on campus"
+- file: /assets/photograph/2025-11-01-1.jpg
+  taken_at: 2025-11-01
+  title: "Autumn on campus"
   location: "Beijing"
-  note: "Soft light and long shadows in early autumn."
+  note: "The gilded autumn."
 
-- file: /assets/photograph/photo2.jpg
-  taken_at: 2024-11-12
-  title: "Night walk under city lights"
-  location: "Hefei"
-  note: "I like the contrast between cold light and warm reflections."
+- file: /assets/photograph/2025-11-01-2.jpg
+  taken_at: 2025-11-01
+  title: "Autumn on campus"
+  location: "Beijing"
+  note: "The gilded autumn."
+
+- file: /assets/photograph/2025-10-28-1.jpg
+  taken_at: 2025-10-28
+  title: "Autumn on campus"
+  location: "Beijing"
+  note: "The gilded autumn."
+
+- file: /assets/photograph/2025-09-28-1.jpg
+  taken_at: 2025-09-28
+  title: "Eternal Sunset"
+  location: "Beijing"
+  note: "The sun sets beside Shichahai."
