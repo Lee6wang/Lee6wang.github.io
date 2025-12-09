@@ -21,3 +21,21 @@
   title: "Eternal Sunset"
   location: "Beijing"
   note: "The sun sets beside Shichahai."
+
+- file: /assets/photograph/2025-07-07-1.jpg
+  taken_at: 2025-07-07
+  title: "Imposing ancient temple"
+  location: "Heifei"
+  note: "The ancient buildings reveal a defiant spirit within them."
+
+- file: /assets/photograph/2025-06-08-1.jpg
+  taken_at: 2025-06-08
+  title: "After the Rain, Clearing Up"
+  location: "Xuancheng"
+  note: "Create the universe."
+
+- file: /assets/photograph/2025-05-24-1.jpg
+  taken_at: 2025-05-24
+  title: "Hong Kong-style Xuancheng"
+  location: "Xuancheng"
+  note: "Walking through the streets of Xuancheng feels like stepping into Hong Kong."
