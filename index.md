@@ -23,4 +23,11 @@ I focus on building reliable, real-time, and scalable systems in embedded firmwa
 
 ## 📝 Recent Posts
 
-{% include list.html %}
+<ul>
+  {% for post in site.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span> — {{ post.date | date: "%Y-%m-%d" }}</span>
+  </li>
+  {% endfor %}
+</ul>
