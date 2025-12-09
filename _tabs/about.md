@@ -18,4 +18,3 @@ My current interests and work include:
 This website documents my projects, experiments, and engineering notes.  
 I hope it helps developers, students, or anyone exploring embedded systems and robotics.
 
-{: .prompt-tip }

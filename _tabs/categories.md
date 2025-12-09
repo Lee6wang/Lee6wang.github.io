@@ -23,5 +23,3 @@ This project implements a complete **Bootloader + Application (APP)** architectu
 - Any STM32 project that needs a reliable firmware update system  
 
 More write-ups and deep-dive articles for this project will be published here soon.
-
-{: .prompt-tip }
