@@ -18,55 +18,6 @@ please visit the **[About](/about/)** page.
 I enjoy capturing light, seasons, and quiet moments.  
 Here are a few photos I took that I personally like:
 
-{% raw %}
-<style>
-.fade-in {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 1.1s ease-out, transform 1.1s ease-out;
-}
+👉 To view the full collection, please visit the **[Photograph](/photograph/)** page.
 
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const items = document.querySelectorAll('.fade-in');
-  items.forEach((item, index) => {
-    setTimeout(() => {
-      item.classList.add('show');
-    }, 200 * index);
-  });
-});
-</script>
-{% endraw %}
-
-<div style="margin-top: 20px;">
-
-  <div class="fade-in" style="
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    padding: 10px;
-    margin-bottom: 24px;
-  ">
-    <img src="/assets/images/photo1.jpg" alt="Photo 1"
-         style="width: 100%; border-radius: 10px; display: block;">
-  </div>
-
-  <div class="fade-in" style="
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    padding: 10px;
-    margin-bottom: 8px;
-  ">
-    <img src="/assets/images/photo2.jpg" alt="Photo 2"
-         style="width: 100%; border-radius: 10px; display: block;">
-  </div>
-
-</div>
 ---

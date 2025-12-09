@@ -1,0 +1,11 @@
+- file: /assets/photograph/photo1.jpg
+  taken_at: 2024-10-01
+  title: "Autumn morning on campus"
+  location: "Beijing"
+  note: "Soft light and long shadows in early autumn."
+
+- file: /assets/photograph/photo2.jpg
+  taken_at: 2024-11-12
+  title: "Night walk under city lights"
+  location: "Hefei"
+  note: "I like the contrast between cold light and warm reflections."
