@@ -12,7 +12,7 @@
 
 - type: rss
   icon: "fas fa-rss"
-  noblank: true
+  noblank: false
 
 - type: wechat
   icon: fab fa-weixin
