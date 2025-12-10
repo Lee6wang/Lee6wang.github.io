@@ -4,13 +4,18 @@
 document.addEventListener("DOMContentLoaded", function () {
   var canvas = document.createElement("canvas");
   var ctx = canvas.getContext("2d");
+
+  // 允许以后在 resize 时更新 dpr（多屏或缩放变化时更稳一点）
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
   var stars = [];
   var maxStars = 26;
   var nextSpawn = 0;
   var lastTime = performance.now();
+
   var currentMode = detectMode();
   var palette = colorsForMode(currentMode);
+
   var fgLayer = {
     speed: [260, 460],
     length: [170, 280],
@@ -18,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     glow: [12, 22],
     opacityScale: 1,
   };
+
   var bgLayer = {
     speed: [160, 280],
     length: [110, 170],
@@ -32,11 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
   canvas.style.width = "100%";
   canvas.style.height = "100%";
   canvas.style.pointerEvents = "none";
+  // 如果你希望在内容之上，可以改成 9999；当前是背景层
   canvas.style.zIndex = 0;
   canvas.setAttribute("aria-hidden", "true");
   document.body.appendChild(canvas);
 
   function resize() {
+    // 更新 dpr（防止把窗口拖到不同缩放屏幕时模糊）
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+
     canvas.width = Math.floor(window.innerWidth * dpr);
     canvas.height = Math.floor(window.innerHeight * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -71,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // 监听系统主题变化
   if (window.matchMedia) {
     var mql = window.matchMedia("(prefers-color-scheme: dark)");
     if (mql.addEventListener) {
@@ -80,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // 监听 html[data-mode] 变化（适配你自己切换主题的逻辑）
   var htmlObserver = new MutationObserver(setModeFromSource);
   htmlObserver.observe(document.documentElement, {
     attributes: true,
@@ -89,15 +101,39 @@ document.addEventListener("DOMContentLoaded", function () {
   function colorsForMode(mode) {
     if (mode === "dark") {
       return {
-        heads: ["rgba(210,245,255,1)", "rgba(190,230,255,1)", "rgba(225,230,255,1)"],
-        tails: ["rgba(110,200,255,0)", "rgba(150,130,255,0)", "rgba(170,230,255,0)"],
-        glows: ["rgba(120,220,255,0.6)", "rgba(180,160,255,0.5)", "rgba(190,220,255,0.55)"],
+        heads: [
+          "rgba(210,245,255,1)",
+          "rgba(190,230,255,1)",
+          "rgba(225,230,255,1)",
+        ],
+        tails: [
+          "rgba(110,200,255,0)",
+          "rgba(150,130,255,0)",
+          "rgba(170,230,255,0)",
+        ],
+        glows: [
+          "rgba(120,220,255,0.6)",
+          "rgba(180,160,255,0.5)",
+          "rgba(190,220,255,0.55)",
+        ],
       };
     }
     return {
-      heads: ["rgba(150,190,255,0.9)", "rgba(200,210,240,0.95)", "rgba(170,185,230,0.9)"],
-      tails: ["rgba(130,170,230,0)", "rgba(180,190,220,0)", "rgba(150,160,210,0)"],
-      glows: ["rgba(150,185,240,0.55)", "rgba(180,175,230,0.45)", "rgba(170,190,230,0.5)"],
+      heads: [
+        "rgba(150,190,255,0.9)",
+        "rgba(200,210,240,0.95)",
+        "rgba(170,185,230,0.9)",
+      ],
+      tails: [
+        "rgba(130,170,230,0)",
+        "rgba(180,190,220,0)",
+        "rgba(150,160,210,0)",
+      ],
+      glows: [
+        "rgba(150,185,240,0.55)",
+        "rgba(180,175,230,0.45)",
+        "rgba(170,190,230,0.5)",
+      ],
     };
   }
 
@@ -111,21 +147,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function spawnStar() {
     if (stars.length >= maxStars) return;
+
     var layer = Math.random() < 0.48 ? bgLayer : fgLayer;
     var angleDeg = randBetween(55, 78);
     var angle = (angleDeg * Math.PI) / 180;
     var speed = randBetween(layer.speed[0], layer.speed[1]);
     var length = randBetween(layer.length[0], layer.length[1]);
     var thickness = randBetween(layer.thickness[0], layer.thickness[1]);
+
     var startX = randBetween(-120, window.innerWidth + 120);
     var startY = randBetween(-160, -40);
     var opacity = randBetween(0.6, 0.95) * layer.opacityScale;
     var accel = randBetween(0.08, 0.18);
     var glowSize = randBetween(layer.glow[0], layer.glow[1]);
+
     var baseHead = pick(palette.heads);
     var baseTail = pick(palette.tails);
     var baseGlow = pick(palette.glows);
-    var speedBoost = (speed - layer.speed[0]) / (layer.speed[1] - layer.speed[0] + 1);
+
+    var speedBoost =
+      (speed - layer.speed[0]) / (layer.speed[1] - layer.speed[0] + 1);
     var brightness = 0.9 + speedBoost * 0.2;
 
     stars.push({
@@ -149,27 +190,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ✅ 修好的正则：真正能解析 "rgba(…)" 字符串
   function tintAlpha(rgbaString, factor) {
     var match = rgbaString.match(
-      /rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)(?:,\\s*([0-9.]+))?\\)/
+      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?\)/
     );
     if (!match) return rgbaString;
+
     var r = Math.min(255, Math.round(parseInt(match[1], 10) * factor));
     var g = Math.min(255, Math.round(parseInt(match[2], 10) * factor));
     var b = Math.min(255, Math.round(parseInt(match[3], 10) * factor));
     var a = match[4] ? parseFloat(match[4]) : 1;
+
     return "rgba(" + r + "," + g + "," + b + "," + a + ")";
   }
 
   function updateAndDraw(now) {
     var dt = now - lastTime;
     lastTime = now;
+
+    // 避免从后台回到前台时 dt 巨大导致流星瞬移
+    if (dt > 100) dt = 100;
+
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     ctx.globalCompositeOperation = "lighter";
 
-    for (var i = stars.length - 1; i >= 0; i -= 1) {
+    for (var i = stars.length - 1; i >= 0; i--) {
       var star = stars[i];
       var age = now - star.born;
+
       if (age > star.life) {
         stars.splice(i, 1);
         continue;
@@ -184,7 +233,11 @@ document.addEventListener("DOMContentLoaded", function () {
       star.y += star.vy * accelBoost * dtSeconds;
 
       var fade = (1 - lifeRatio * 0.9) * star.opacity * star.depthFade;
-      if (fade <= 0 || star.y > window.innerHeight + 200 || star.x > window.innerWidth + 200) {
+      if (
+        fade <= 0 ||
+        star.y > window.innerHeight + 200 ||
+        star.x > window.innerWidth + 200
+      ) {
         stars.splice(i, 1);
         continue;
       }
@@ -192,6 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ctx.save();
       ctx.translate(star.x, star.y);
       ctx.rotate(star.angle);
+
       var grad = ctx.createLinearGradient(0, 0, star.length, 0);
       grad.addColorStop(0, star.head);
       grad.addColorStop(0.18, star.head);
@@ -209,6 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ctx.lineTo(star.length, 0);
       ctx.stroke();
 
+      // 二次笔画：细一点的核心光
       ctx.globalAlpha = fade * 0.5;
       ctx.lineWidth = star.thickness * 0.55;
       ctx.shadowBlur = star.glowSize * 0.6;
