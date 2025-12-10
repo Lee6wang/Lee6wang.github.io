@@ -33,39 +33,17 @@ These sections will continue to evolve as I publish new writings, experiments, a
 
 ---
 
-<style>
-  .rainbow-text {
-    font-size: 2.1rem;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 16px;
-    letter-spacing: 0.04em;
-    background: linear-gradient(
-      120deg,
-      #ff6b6b,
-      #feca57,
-      #1dd1a1,
-      #48dbfb,
-      #5f27cd,
-      #ff6b6b
-    );
-    background-size: 220% 220%;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: rainbowShift 4s ease-in-out infinite alternate;
-  }
-
-  @keyframes rainbowShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-</style>
-
-<p class="rainbow-text">
+<p style="
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 16px;
+  letter-spacing: 0.04em;
+  background: linear-gradient(120deg, #4c6fff, #18c0c1);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  color: transparent;
+">
   Make it work. Make it better.
 </p>
 
