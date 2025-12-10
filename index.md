@@ -48,3 +48,5 @@ These sections will continue to grow as I publish more articles and project note
   Make it work. Make it better.
 </p>
 
+<script src="/assets/js/custom.js"></script>
+
