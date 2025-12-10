@@ -22,6 +22,18 @@ Here are a few photos I took that I personally like:
 
 ---
 
+## 📚 Explore More Content
+
+To make it easier to browse different topics on this site:
+
+- **[Categories](/categories/)** — Articles grouped by themes such as embedded systems, robotics, control, and technical notes.
+- **[Tags](/tags/)** — Quick jumps to specific topics like STM32, Bootloader, IAP, Control, Sensors, etc.
+- **[Archives](/archives/)** — A chronological list of all posts, useful for reviewing past work and updates.
+
+These sections will continue to grow as I publish more articles and project notes.
+
+---
+
 <p style="
   font-size: 2.1rem;
   font-weight: 600;
@@ -33,5 +45,5 @@ Here are a few photos I took that I personally like:
   -webkit-background-clip: text;
   color: transparent;
 ">
-  Build what you wish to see in the world.
+  Make it work. Make it better.
 </p>
