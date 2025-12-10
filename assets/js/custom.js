@@ -1,10 +1,49 @@
 /* ----------------------
-   Meteor Animation
+   Cinematic Shooting Stars (Canvas)
    ---------------------- */
 document.addEventListener("DOMContentLoaded", function () {
-  var maxMeteors = 12;
-  var activeMeteors = 0;
+  var canvas = document.createElement("canvas");
+  var ctx = canvas.getContext("2d");
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var stars = [];
+  var maxStars = 26;
+  var nextSpawn = 0;
+  var lastTime = performance.now();
   var currentMode = detectMode();
+  var palette = colorsForMode(currentMode);
+  var fgLayer = {
+    speed: [260, 460],
+    length: [170, 280],
+    thickness: [1.4, 2.6],
+    glow: [12, 22],
+    opacityScale: 1,
+  };
+  var bgLayer = {
+    speed: [160, 280],
+    length: [110, 170],
+    thickness: [1, 1.8],
+    glow: [7, 12],
+    opacityScale: 0.8,
+  };
+
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.pointerEvents = "none";
+  canvas.style.zIndex = 0;
+  canvas.setAttribute("aria-hidden", "true");
+  document.body.appendChild(canvas);
+
+  function resize() {
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
 
   function detectMode() {
     var htmlMode = document.documentElement.getAttribute("data-mode");
@@ -25,7 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function setModeFromSource() {
-    currentMode = detectMode();
+    var nextMode = detectMode();
+    if (nextMode !== currentMode) {
+      currentMode = nextMode;
+      palette = colorsForMode(currentMode);
+    }
   }
 
   if (window.matchMedia) {
@@ -43,97 +86,147 @@ document.addEventListener("DOMContentLoaded", function () {
     attributeFilter: ["data-mode"],
   });
 
-  function colorForMode() {
-    if (currentMode === "dark") {
+  function colorsForMode(mode) {
+    if (mode === "dark") {
       return {
-        head: "rgba(255,245,200,0.95)",
-        tail: "rgba(255,245,200,0)",
-        glow: "rgba(255,245,200,0.5)",
+        heads: ["rgba(210,245,255,1)", "rgba(190,230,255,1)", "rgba(225,230,255,1)"],
+        tails: ["rgba(110,200,255,0)", "rgba(150,130,255,0)", "rgba(170,230,255,0)"],
+        glows: ["rgba(120,220,255,0.6)", "rgba(180,160,255,0.5)", "rgba(190,220,255,0.55)"],
       };
     }
     return {
-      head: "rgba(80,140,255,0.95)",
-      tail: "rgba(80,140,255,0)",
-      glow: "rgba(80,140,255,0.35)",
+      heads: ["rgba(150,190,255,0.9)", "rgba(200,210,240,0.95)", "rgba(170,185,230,0.9)"],
+      tails: ["rgba(130,170,230,0)", "rgba(180,190,220,0)", "rgba(150,160,210,0)"],
+      glows: ["rgba(150,185,240,0.55)", "rgba(180,175,230,0.45)", "rgba(170,190,230,0.5)"],
     };
   }
 
-  function createMeteor() {
-    if (activeMeteors >= maxMeteors) return;
-    activeMeteors += 1;
-
-    var meteor = document.createElement("div");
-    var thickness = Math.random() * 1.5 + 1.2;
-    var length = Math.random() * 160 + 120;
-    var startX = Math.random() * (window.innerWidth + 200) - 100;
-    var startY = Math.random() * -140 - 40;
-    var duration = Math.random() * 1200 + 1500;
-    var angleDeg = 65 + Math.random() * 15; // down-right direction
-    var angle = (angleDeg * Math.PI) / 180;
-    var distance = Math.random() * 420 + 420;
-    var deltaX = Math.cos(angle) * distance;
-    var deltaY = Math.sin(angle) * distance;
-    var palette = colorForMode();
-
-    meteor.style.position = "fixed";
-    meteor.style.left = "0";
-    meteor.style.top = "0";
-    meteor.style.width = length + "px";
-    meteor.style.height = thickness + "px";
-    meteor.style.background =
-      "linear-gradient(90deg, " + palette.head + ", " + palette.tail + ")";
-    meteor.style.borderRadius = "999px";
-    meteor.style.pointerEvents = "none";
-    meteor.style.zIndex = 0;
-    meteor.style.boxShadow = "0 0 14px " + palette.glow;
-    meteor.style.opacity = 0;
-    meteor.style.transform =
-      "translate3d(" +
-      startX +
-      "px, " +
-      startY +
-      "px, 0) rotate(" +
-      angleDeg +
-      "deg)";
-    meteor.style.willChange = "transform, opacity";
-    meteor.style.filter = "blur(0.2px)";
-
-    document.body.appendChild(meteor);
-
-    var startTime = performance.now();
-
-    function animate(now) {
-      var t = (now - startTime) / duration;
-      if (t >= 1) {
-        document.body.removeChild(meteor);
-        activeMeteors -= 1;
-        return;
-      }
-
-      var eased = Math.sqrt(t);
-      var currentX = startX + deltaX * eased;
-      var currentY = startY + deltaY * eased;
-      var fade = Math.min(1, eased * 2) * (1 - t * 0.8);
-
-      meteor.style.transform =
-        "translate3d(" +
-        currentX +
-        "px, " +
-        currentY +
-        "px, 0) rotate(" +
-        angleDeg +
-        "deg)";
-      meteor.style.opacity = fade;
-
-      requestAnimationFrame(animate);
-    }
-
-    requestAnimationFrame(animate);
+  function randBetween(min, max) {
+    return min + Math.random() * (max - min);
   }
 
-  (function scheduleMeteors() {
-    createMeteor();
-    var delay = Math.random() * 1500 + 1500;
-    setTimeout(scheduleMeteors, delay);
-  })();
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function spawnStar() {
+    if (stars.length >= maxStars) return;
+    var layer = Math.random() < 0.48 ? bgLayer : fgLayer;
+    var angleDeg = randBetween(55, 78);
+    var angle = (angleDeg * Math.PI) / 180;
+    var speed = randBetween(layer.speed[0], layer.speed[1]);
+    var length = randBetween(layer.length[0], layer.length[1]);
+    var thickness = randBetween(layer.thickness[0], layer.thickness[1]);
+    var startX = randBetween(-120, window.innerWidth + 120);
+    var startY = randBetween(-160, -40);
+    var opacity = randBetween(0.6, 0.95) * layer.opacityScale;
+    var accel = randBetween(0.08, 0.18);
+    var glowSize = randBetween(layer.glow[0], layer.glow[1]);
+    var baseHead = pick(palette.heads);
+    var baseTail = pick(palette.tails);
+    var baseGlow = pick(palette.glows);
+    var speedBoost = (speed - layer.speed[0]) / (layer.speed[1] - layer.speed[0] + 1);
+    var brightness = 0.9 + speedBoost * 0.2;
+
+    stars.push({
+      x: startX,
+      y: startY,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      accel: accel,
+      length: length,
+      thickness: thickness,
+      opacity: opacity,
+      angle: angle,
+      angleDeg: angleDeg,
+      life: randBetween(1400, 2000),
+      born: performance.now(),
+      glow: baseGlow,
+      head: tintAlpha(baseHead, brightness),
+      tail: baseTail,
+      glowSize: glowSize,
+      depthFade: layer === fgLayer ? 1 : 0.85,
+    });
+  }
+
+  function tintAlpha(rgbaString, factor) {
+    var match = rgbaString.match(
+      /rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)(?:,\\s*([0-9.]+))?\\)/
+    );
+    if (!match) return rgbaString;
+    var r = Math.min(255, Math.round(parseInt(match[1], 10) * factor));
+    var g = Math.min(255, Math.round(parseInt(match[2], 10) * factor));
+    var b = Math.min(255, Math.round(parseInt(match[3], 10) * factor));
+    var a = match[4] ? parseFloat(match[4]) : 1;
+    return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+  }
+
+  function updateAndDraw(now) {
+    var dt = now - lastTime;
+    lastTime = now;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    ctx.globalCompositeOperation = "lighter";
+
+    for (var i = stars.length - 1; i >= 0; i -= 1) {
+      var star = stars[i];
+      var age = now - star.born;
+      if (age > star.life) {
+        stars.splice(i, 1);
+        continue;
+      }
+
+      var lifeRatio = age / star.life;
+      var eased = Math.sqrt(lifeRatio);
+      var accelBoost = 1 + star.accel * eased * 1.3;
+      var dtSeconds = dt / 1000;
+
+      star.x += star.vx * accelBoost * dtSeconds;
+      star.y += star.vy * accelBoost * dtSeconds;
+
+      var fade = (1 - lifeRatio * 0.9) * star.opacity * star.depthFade;
+      if (fade <= 0 || star.y > window.innerHeight + 200 || star.x > window.innerWidth + 200) {
+        stars.splice(i, 1);
+        continue;
+      }
+
+      ctx.save();
+      ctx.translate(star.x, star.y);
+      ctx.rotate(star.angle);
+      var grad = ctx.createLinearGradient(0, 0, star.length, 0);
+      grad.addColorStop(0, star.head);
+      grad.addColorStop(0.18, star.head);
+      grad.addColorStop(1, star.tail);
+
+      ctx.shadowColor = star.glow;
+      ctx.shadowBlur = star.glowSize;
+      ctx.lineCap = "round";
+      ctx.lineWidth = star.thickness;
+      ctx.globalAlpha = fade;
+
+      ctx.strokeStyle = grad;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(star.length, 0);
+      ctx.stroke();
+
+      ctx.globalAlpha = fade * 0.5;
+      ctx.lineWidth = star.thickness * 0.55;
+      ctx.shadowBlur = star.glowSize * 0.6;
+      ctx.beginPath();
+      ctx.moveTo(star.length * 0.25, 0);
+      ctx.lineTo(star.length, 0);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    if (now >= nextSpawn) {
+      spawnStar();
+      nextSpawn = now + randBetween(480, 1100);
+    }
+
+    requestAnimationFrame(updateAndDraw);
+  }
+
+  requestAnimationFrame(updateAndDraw);
 });
