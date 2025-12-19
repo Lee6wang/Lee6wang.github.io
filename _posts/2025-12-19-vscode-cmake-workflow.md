@@ -191,7 +191,7 @@ uniflash --version
 
 在这里，对于初学者来说，可以模仿CubeMx中的结构，我们先使用CubeMx生成一个基础工程，筑波在这里选择的是STM32F103RCT6芯片，生成其CMAKE工程，生成后我们可以看到如下目录结构：
 
-![1](../assets/figure/2025-12-19/1.png)
+![1](/assets/figure/2025-12-19/1.png)
 
 让我们来简单介绍一下这个目录
 
@@ -238,7 +238,7 @@ project/
 
 在 VS Code 中，按下 `Ctrl+Shift+P` 打开命令面板，输入 `CMake: Configure` 并回车，选择合适的构建预设（如 Debug）。配置完成后，再次打开命令面板，输入 `CMake: Build` 并回车，即可开始编译项目。编译结果会输出到 `build/Debug` 目录下。
 
-![2](../assets/figure/2025-12-19/2.png)
+![2](/assets/figure/2025-12-19/2.png)
 
 当出现如上界面的时候，恭喜你，已经完成编译了。
 
@@ -272,7 +272,7 @@ openocd -f openocd/interface/stlink.cfg \
 
 这个时候，下面会出现烧录成功的信息：
 
-![3](../assets/figure/2025-12-19/3.png)
+![3](/assets/figure/2025-12-19/3.png)
 
 至于为啥我这里显示失败，是因为我压根没连板子，大家不要在意。（手动狗头
 
