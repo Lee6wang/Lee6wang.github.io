@@ -1,3 +1,10 @@
+---
+title: "2025的我，思考了哪些"
+date: 2025-12-26 12:00:00 +0800
+categories: [Reflection, 2025]
+tags: [Reflection, 2025]
+---
+
 # 2025的我，思考了哪些
 
 ## 1 引言
