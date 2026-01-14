@@ -46,7 +46,3 @@ These sections will continue to evolve as I publish new writings, experiments, a
 ">
   Make it work. Make it better.
 </p>
-
-<script src="/assets/lib/three.r134.min.js"></script>
-<script src="/assets/lib/vanta.net.js"></script>
-
