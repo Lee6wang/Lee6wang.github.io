@@ -1,8 +1,15 @@
+/* Vanta 背景层 */
 #vanta-bg{
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: 0;           /* 不要 -1 */
   pointer-events: none;
+}
+
+/* 让正文在它上面（Chirpy 主容器通常叫 main-wrapper） */
+#main-wrapper{
+  position: relative;
+  z-index: 1;
 }

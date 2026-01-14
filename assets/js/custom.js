@@ -23,5 +23,4 @@ function initVantaHome() {
 }
 
 document.addEventListener("DOMContentLoaded", initVantaHome);
-// Chirpy 常见的“无刷新切页”场景兜底
-document.addEventListener("pjax:end", initVantaHome);
+document.addEventListener("pjax:end", initVantaHome); // 兼容 Chirpy 切页
