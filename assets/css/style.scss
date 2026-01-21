@@ -1,0 +1,32 @@
+/* =========================================================
+ * MathJax layout tuning for Chirpy
+ * Make math look closer to Typora / LaTeX papers
+ * ========================================================= */
+
+/* Block (display) equations */
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  overflow-x: auto;        /* prevent matrix squashing */
+  padding: 0.3rem 0;       /* vertical breathing space */
+  margin: 0.8rem 0;        /* separate from text */
+}
+
+/* All math: slightly larger for readability */
+mjx-container[jax="CHTML"] {
+  font-size: 110%;
+}
+
+/* Inline math: better baseline alignment */
+mjx-container[jax="CHTML"]:not([display="true"]) {
+  vertical-align: -0.15em;
+}
+
+/* Matrices: avoid too tight rows */
+mjx-mtable {
+  line-height: 1.25;
+}
+
+/* Prevent math from breaking post width */
+.post-content mjx-container {
+  max-width: 100%;
+}
