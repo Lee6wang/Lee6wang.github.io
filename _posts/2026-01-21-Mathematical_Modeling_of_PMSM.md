@@ -12,6 +12,7 @@ math: true
 
 本文为个人学习笔记，主要参考文献为  
 **《现代永磁同步电机控制原理及 MATLAB 仿真》—— 袁雷 编著**。
+由于组里做的方向和电机相关，后续会写很多与电机相关的东西，无论是DSP 控制，还是电机控制算法设计，都离不开对电机数学模型的理解，所以先把数学模型的内容整理出来，方便后续查阅。
 
 ---
 
@@ -323,3 +324,70 @@ T_{3s/2r}' =
 -\cos\!\left(\theta_e + \frac{2\pi}{3}\right)
 \end{bmatrix}
 $$
+
+---
+
+## 三、PMSM 在 \(dq\) 坐标系下的数学模型
+
+可列出 PMSM 在 \(dq\) 坐标系下的数学模型，其用定子电压方程可表示为：
+$$
+\begin{cases}
+u_d = R\,i_d + \dfrac{d\psi_d}{dt} - \omega_e\,\psi_q, \\
+u_q = R\,i_q + \dfrac{d\psi_q}{dt} + \omega_e\,\psi_d.
+\end{cases}
+$$
+定子磁链方程为
+$$
+\begin{cases}
+\psi_d = L_d\, i_d + \psi_f, \\
+\psi_q = L_q\, i_q.
+\end{cases}
+$$
+将两式合并可得：
+$$
+\begin{bmatrix}
+u_d \\ u_q
+\end{bmatrix} =
+\begin{bmatrix}
+R & \omega_e L_q \\
+-\omega_e L_d & R
+\end{bmatrix}
+\begin{bmatrix}
+i_d \\ i_q
+\end{bmatrix} +
+\frac{d}{dt}
+\begin{bmatrix}
+L_d & 0 \\ 0 & L_q
+\end{bmatrix}
+\begin{bmatrix}
+i_d \\ i_q
+\end{bmatrix} +
+\begin{bmatrix}
+0 \\ \omega_e \psi_f
+\end{bmatrix}
+$$
+其中:$u_d, u_q$ 为定子电压 ($dq$ 坐标系)；$i_d, i_q$ 为定子电流($dq$ 坐标系)；$\psi_d, \psi_q$ 为磁链；$\omega_e$ 为电角速度。$L_d, L_q$ 分别为定子 $d$ 轴和 $q$ 轴电感；$\psi_f$ 为永磁体磁链。
+
+![3](../assets/figure/2026-01-21/3.png)
+根据上式可得出点压等效电路如上图所示，此时电磁转矩方程为：
+$$
+T_e = \frac{3}{2} p_n \left[ \psi_f i_q + (L_d - L_q) i_d i_q \right]
+$$
+其中：$p_n$ 为电机极对数。
+对于表贴式永磁同步电机，$L_d = L_q$，则电磁转矩方程简化为：
+$$
+T_e = \frac{3}{2} p_n \psi_f i_q
+$$
+同时在仿真时，有几个重要的关系式：
+$$
+\begin{cases}
+\omega_e = n_p\,\omega_m, \\[4pt]
+N_r = \dfrac{30}{\pi}\,\omega_m, \\[6pt]
+\theta_e = \displaystyle \int \omega_e \, dt.
+\end{cases}
+$$
+其中：$n_p$ 为电机极对数，$N_r$ 为转速（单位：rpm），$\omega_m$ 为机械角速度（单位：rad/s），$\theta_e$ 为电机电角度。
+
+## 四、总结
+
+本文介绍了永磁同步电机的基本数学模型及其在 \(dq\) 坐标系下的表达形式。通过坐标变换，简化了电压方程和磁链方程，为后续的控制策略设计奠定了基础。理解这些数学模型对于实现高效的电机控制至关重要。
