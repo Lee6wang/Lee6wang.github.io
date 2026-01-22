@@ -1,8 +1,8 @@
 ---
 title: "STM32 时钟架构的设计哲学与工程后果"
 date: 2026-01-19 22:00:00 +0800
-categories: [STM32, Engineering]
-tags: [Clock]
+categories: [Engineering, STM32]
+tags: [STM32]
 ---
 
 # STM32 时钟架构的设计哲学与工程后果

@@ -1,8 +1,8 @@
 ---
 title: "VS Code + CMake 嵌入式通用工作流"
 date: 2025-12-19 22:00:00 +0800
-categories: [Embedded, Basic]
-tags: [CMAKE, VSCODE]
+categories: [Basic,Embedded]
+tags: [VSCODE]
 ---
 
 # VS Code + CMake 嵌入式通用工作流

@@ -121,6 +121,7 @@ $$
 其中 \(p_n\) 为电机极对数。
 
 在这里补充一个，机械角 \(\theta_m\) 与电角 \(\theta_e\) 的关系为：
+
 $$
 \theta_e = \frac{p_n}{2} \theta_m
 $$
@@ -348,6 +349,7 @@ $$
 ## 三、PMSM 在 \(dq\) 坐标系下的数学模型
 
 可列出 PMSM 在 \(dq\) 坐标系下的数学模型，其用定子电压方程可表示为：
+
 $$
 \begin{cases}
 u_d = R\,i_d + \dfrac{d\psi_d}{dt} - \omega_e\,\psi_q, \\
@@ -355,14 +357,17 @@ u_q = R\,i_q + \dfrac{d\psi_q}{dt} + \omega_e\,\psi_d.
 \end{cases}
 \tag{10}
 $$
+
 针对上式，$\dfrac{d\psi_d}{dt}$ 表示的是最基本的电磁学关系
 
 > 电压 = 磁链的时间变化率，任何坐标系，只要磁链变，就一定会有电压
 
 同时，在旋转坐标系中，向量的时间导数并不是普通倒数，而是
+
 $$
 \frac{d\psi}{dt} = \left( \frac{d\psi}{dt} \right)_{\text{静止}} + \omega_e \times \psi
 $$
+
 因此在 $dq$ 坐标系下，电压方程中会多出与转速 $\omega_e$ 相关的交叉项。
 其中$\omega_e \times \psi$就是我们所看见的公式后面的那一项
 
@@ -370,6 +375,7 @@ $$
 >但在稳态下，它数值上等价于反电势贡献。
 
 定子磁链方程为
+
 $$
 \begin{cases}
 \psi_d = L_d\, i_d + \psi_f, \\
@@ -381,6 +387,7 @@ $$
 我们可以发现，在$d$轴下，会多出来一项$\psi_f$，这就是永磁体磁链的贡献。
 因为$d$轴**始终跟着永磁体磁极方向旋转**，而永磁体在这个坐标系下是大小恒定，方向固定，完全落在$d$轴上。
 将式10、11合并可得：
+
 $$
 \begin{bmatrix}
 u_d \\ u_q
@@ -404,21 +411,27 @@ i_d \\ i_q
 \end{bmatrix}
 \tag{12}
 $$
+
 其中:$u_d, u_q$ 为定子电压 ($dq$ 坐标系)；$i_d, i_q$ 为定子电流($dq$ 坐标系)；$\psi_d, \psi_q$ 为磁链；$\omega_e$ 为电角速度。$L_d, L_q$ 分别为定子 $d$ 轴和 $q$ 轴电感；$\psi_f$ 为永磁体磁链。
 
 ![3](../assets/figure/2026-01-21/3.png)
 根据上式可得出点压等效电路如上图所示，此时电磁转矩方程为：
+
 $$
 T_e = \frac{3}{2} p_n \left[ \psi_f i_q + (L_d - L_q) i_d i_q \right]
 \tag{13}
 $$
+
 其中：$p_n$ 为电机极对数。
 对于表贴式永磁同步电机，$L_d = L_q$，则电磁转矩方程简化为：
+
 $$
 T_e = \frac{3}{2} p_n \psi_f i_q
 \tag{14}
 $$
+
 同时在仿真时，有几个重要的关系式：
+
 $$
 \begin{cases}
 \omega_e = n_p\,\omega_m, \\[4pt]
@@ -426,6 +439,7 @@ N_r = \dfrac{30}{\pi}\,\omega_m, \\[6pt]
 \theta_e = \displaystyle \int \omega_e \, dt.
 \end{cases}
 $$
+
 其中：$n_p$ 为电机极对数，$N_r$ 为转速（单位：rpm），$\omega_m$ 为机械角速度（单位：rad/s），$\theta_e$ 为电机电角度。
 
 ---
@@ -626,6 +640,7 @@ $$\omega_e (L_d - L_q)$$
 这一项只在内嵌式 PMSM/同步磁阻电机中存在。
 
 静止坐标系下的电磁转矩方程可以表示为：
+
 $$
 T_e=
 \frac{3}{2}\,p_n\!\left(
@@ -634,15 +649,19 @@ T_e=
 \right)
 \tag{20}
 $$
+
 定子磁链方程为：
+
 $$
 \begin{cases}
 \dfrac{d\psi_\alpha}{dt} = u_\alpha - R\,i_\alpha, \\
 \dfrac{d\psi_\beta}{dt} = u_\beta - R\,i_\beta.
 \end{cases}
 $$
+
 其中：$\psi_\alpha, \psi_\beta$ 为定子磁链 ($\alpha \beta$ 坐标系)。
 磁链的幅值为：
+
 $$
 \psi_s = \sqrt{\psi_\alpha^2 + \psi_\beta^2}
 \tag{21}
@@ -685,6 +704,7 @@ $$
 $$
 
 其中:
+
 $$
 \psi_\alpha=
 \frac{L_d}{L_q}\,\psi_f \cos\theta_m-
@@ -714,6 +734,7 @@ L_2 i_\beta
 $$
 
 静止坐标系下电机的机械运动方程为
+
 $$
 J\,\frac{d\omega_m}{dt}=
 \psi_\alpha i_\beta-
