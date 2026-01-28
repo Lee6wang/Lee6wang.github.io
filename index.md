@@ -47,6 +47,18 @@ These sections will continue to evolve as I publish new writings, experiments, a
   Make it work. Make it better.
 </p>
 
+<style>
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+</style>
+
 <div id="vanta-bg"></div>
 <script src="/assets/lib/three.r134.min.js"></script>
 <script src="/assets/lib/vanta.net.min.js"></script>
