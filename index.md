@@ -46,5 +46,3 @@ These sections will continue to evolve as I publish new writings, experiments, a
 ">
   Make it work. Make it better.
 </p>
-
-<script src="/assets/js/custom.js"></script>
