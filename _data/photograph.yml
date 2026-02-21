@@ -1,3 +1,27 @@
+- file: /assets/photograph/2026-02-12.jpg
+  taken_at: 2026-02-12
+  title: "Beautiful Hefei, a hub of innovation"
+  location: "Hefei"
+  note: "The Perspective of the Swan Lake in the Library."
+
+- file: /assets/photograph/2026-02-09.jpg
+  taken_at: 2026-02-09
+  title: "Purple Peak! Show Your Strength!"
+  location: "Nanjing"
+  note: "Viewing the Pudong Tower from Gucheng Temple."
+
+- file: /assets/photograph/2026-02-01.jpg
+  taken_at: 2026-02-01
+  title: "The fastest legend of Meishan Island"
+  location: "Ningbo"
+  note: "That man came back riding an electric bike."
+
+- file: /assets/photograph/2026-01-18.jpg
+  taken_at: 2026-01-18
+  title: "The moment of light and shadow"
+  location: "Beijing"
+  note: "From light to darkness."
+
 - file: /assets/photograph/2026-01-14.jpg
   taken_at: 2026-01-14
   title: "Night in Shanghai"
