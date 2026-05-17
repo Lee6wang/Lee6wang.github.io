@@ -1,5 +1,6 @@
 ---
 title: "嵌入式 C 语言关键词理解：从 static 到 volatile，真正影响工程稳定性的细节"
+title_en: "Understanding Embedded C Keywords: From static to volatile and the Details That Affect Engineering Stability"
 date: 2026-04-29 00:00:00 +0800
 categories: [Engineering]
 tags: [Embeddedd]

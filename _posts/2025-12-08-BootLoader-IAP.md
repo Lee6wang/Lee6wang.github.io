@@ -1,5 +1,6 @@
 ---
 title: "STM32 Bootloader 与 IAP 升级完整解决方案（小白也能看懂加强版）"
+title_en: "Complete STM32 Bootloader and IAP Upgrade Solution (Beginner-Friendly Enhanced Edition)"
 date: 2025-12-08 10:00:00 +0800
 categories: [Engineering, STM32]
 tags: [STM32]

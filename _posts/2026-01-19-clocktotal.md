@@ -1,5 +1,6 @@
 ---
 title: "STM32 时钟架构的设计哲学与工程后果"
+title_en: "The Design Philosophy and Engineering Consequences of the STM32 Clock Architecture"
 date: 2026-01-19 22:00:00 +0800
 categories: [Engineering, STM32]
 tags: [STM32]

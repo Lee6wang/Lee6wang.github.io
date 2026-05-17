@@ -30,3 +30,57 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.i18n-block,
+.i18n-inline {
+  display: none;
+}
+
+html:not([data-site-lang]) .i18n-block[data-i18n-lang="zh"],
+html[data-site-lang="zh"] .i18n-block[data-i18n-lang="zh"],
+html[data-site-lang="en"] .i18n-block[data-i18n-lang="en"] {
+  display: block;
+}
+
+html:not([data-site-lang]) .i18n-inline[data-i18n-lang="zh"],
+html[data-site-lang="zh"] .i18n-inline[data-i18n-lang="zh"],
+html[data-site-lang="en"] .i18n-inline[data-i18n-lang="en"] {
+  display: inline;
+}
+
+.i18n-switcher {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1050;
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid var(--main-border-color, rgba(128, 128, 128, 0.25));
+  border-radius: 999px;
+  background: var(--sidebar-bg, rgba(255, 255, 255, 0.92));
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.i18n-switcher button {
+  min-width: 2.25rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-color, #34343c);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.i18n-switcher button.is-active {
+  background: var(--btn-border-color, #3b82f6);
+  color: #fff;
+}
+
+html[data-mode="dark"] .i18n-switcher {
+  background: rgba(30, 32, 36, 0.92);
+}

@@ -1,5 +1,6 @@
 ---
 title: "从脉冲到角度：增量式编码器的原理与实现"
+title_en: "From Pulses to Angle: Principles and Implementation of Incremental Encoders"
 date: 2026-01-27 09:00:00 +0800
 categories: [Motor Control, Engineering]
 tags: [Encoder]

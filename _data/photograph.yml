@@ -1,71 +1,143 @@
 - file: /assets/photograph/2026-02-12.jpg
   taken_at: 2026-02-12
   title: "Beautiful Hefei, a hub of innovation"
+  title_en: "Beautiful Hefei, a hub of innovation"
+  title_zh: "美丽合肥，创新高地"
   location: "Hefei"
+  location_en: "Hefei"
+  location_zh: "合肥"
   note: "The Perspective of the Swan Lake in the Library."
+  note_en: "The Perspective of the Swan Lake in the Library."
+  note_zh: "从图书馆望向天鹅湖的视角。"
 
 - file: /assets/photograph/2026-02-09.jpg
   taken_at: 2026-02-09
   title: "Purple Peak! Show Your Strength!"
+  title_en: "Purple Peak! Show Your Strength!"
+  title_zh: "紫峰！展现你的力量！"
   location: "Nanjing"
+  location_en: "Nanjing"
+  location_zh: "南京"
   note: "Viewing the Pudong Tower from Gucheng Temple."
+  note_en: "Viewing the Pudong Tower from Gucheng Temple."
+  note_zh: "从古城寺远眺紫峰大厦。"
 
 - file: /assets/photograph/2026-02-01.jpg
   taken_at: 2026-02-01
   title: "The fastest legend of Meishan Island"
+  title_en: "The fastest legend of Meishan Island"
+  title_zh: "梅山岛最快传说"
   location: "Ningbo"
+  location_en: "Ningbo"
+  location_zh: "宁波"
   note: "That man came back riding an electric bike."
+  note_en: "That man came back riding an electric bike."
+  note_zh: "那个男人骑着电动车回来了。"
 
 - file: /assets/photograph/2026-01-18.jpg
   taken_at: 2026-01-18
   title: "The moment of light and shadow"
+  title_en: "The moment of light and shadow"
+  title_zh: "光影的瞬间"
   location: "Beijing"
+  location_en: "Beijing"
+  location_zh: "北京"
   note: "From light to darkness."
+  note_en: "From light to darkness."
+  note_zh: "从光明到黑暗。"
 
 - file: /assets/photograph/2026-01-14.jpg
   taken_at: 2026-01-14
   title: "Night in Shanghai"
+  title_en: "Night in Shanghai"
+  title_zh: "上海之夜"
   location: "Shanghai"
+  location_en: "Shanghai"
+  location_zh: "上海"
   note: "The city that never sleeps."
+  note_en: "The city that never sleeps."
+  note_zh: "不夜之城。"
 
 - file: /assets/photograph/2025-11-01-1.jpg
   taken_at: 2025-11-01
   title: "Autumn on campus"
+  title_en: "Autumn on campus"
+  title_zh: "校园秋色"
   location: "Beijing"
+  location_en: "Beijing"
+  location_zh: "北京"
   note: "The gilded autumn."
+  note_en: "The gilded autumn."
+  note_zh: "镀金般的秋天。"
 
 - file: /assets/photograph/2025-11-01-2.jpg
   taken_at: 2025-11-01
   title: "Autumn on campus"
+  title_en: "Autumn on campus"
+  title_zh: "校园秋色"
   location: "Beijing"
+  location_en: "Beijing"
+  location_zh: "北京"
   note: "The gilded autumn."
+  note_en: "The gilded autumn."
+  note_zh: "镀金般的秋天。"
 
 - file: /assets/photograph/2025-10-28-1.jpg
   taken_at: 2025-10-28
   title: "Autumn on campus"
+  title_en: "Autumn on campus"
+  title_zh: "校园秋色"
   location: "Beijing"
+  location_en: "Beijing"
+  location_zh: "北京"
   note: "The gilded autumn."
+  note_en: "The gilded autumn."
+  note_zh: "镀金般的秋天。"
 
 - file: /assets/photograph/2025-09-28-1.jpg
   taken_at: 2025-09-28
   title: "Eternal Sunset"
+  title_en: "Eternal Sunset"
+  title_zh: "永恒的日落"
   location: "Beijing"
+  location_en: "Beijing"
+  location_zh: "北京"
   note: "The sun sets beside Shichahai."
+  note_en: "The sun sets beside Shichahai."
+  note_zh: "太阳落在什刹海旁。"
 
 - file: /assets/photograph/2025-07-07-1.jpg
   taken_at: 2025-07-07
   title: "Imposing ancient temple"
-  location: "Heifei"
+  title_en: "Imposing ancient temple"
+  title_zh: "庄严古寺"
+  location: "Hefei"
+  location_en: "Hefei"
+  location_zh: "合肥"
   note: "The ancient buildings reveal a defiant spirit within them."
+  note_en: "The ancient buildings reveal a defiant spirit within them."
+  note_zh: "古建筑中透出一种不屈的精神。"
 
 - file: /assets/photograph/2025-06-08-1.jpg
   taken_at: 2025-06-08
   title: "After the Rain, Clearing Up"
+  title_en: "After the Rain, Clearing Up"
+  title_zh: "雨后初晴"
   location: "Xuancheng"
+  location_en: "Xuancheng"
+  location_zh: "宣城"
   note: "Create the universe."
+  note_en: "Create the universe."
+  note_zh: "创造宇宙。"
 
 - file: /assets/photograph/2025-05-24-1.jpg
   taken_at: 2025-05-24
   title: "Hong Kong-style Xuancheng"
+  title_en: "Hong Kong-style Xuancheng"
+  title_zh: "港风宣城"
   location: "Xuancheng"
+  location_en: "Xuancheng"
+  location_zh: "宣城"
   note: "Walking through the streets of Xuancheng feels like stepping into Hong Kong."
+  note_en: "Walking through the streets of Xuancheng feels like stepping into Hong Kong."
+  note_zh: "走在宣城街头，像是踏进了香港。"

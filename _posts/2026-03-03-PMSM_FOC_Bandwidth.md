@@ -1,5 +1,6 @@
 ﻿---
 title: "带宽基础笔记：PMSM FOC 视角"
+title_en: "Basic Notes on Bandwidth from a PMSM FOC Perspective"
 date: 2026-03-03 15:00:00 +0800
 categories: [Motor Control, Engineering]
 tags: [PMSM]

@@ -1,5 +1,6 @@
 ---
 title: "永磁同步直线电机（PMLSM）的数学建模：与旋转 PMSM 的异同"
+title_en: "Mathematical Modeling of Permanent Magnet Linear Synchronous Motors (PMLSM): Similarities and Differences with Rotary PMSM"
 date: 2026-01-23 14:00:00 +0800
 categories: [Motor Control, Engineering]
 tags: [PMLSM, PMSM]

@@ -1,5 +1,6 @@
 ---
 title: "永磁同步电机的数学建模"
+title_en: "Mathematical Modeling of Permanent Magnet Synchronous Motors"
 date: 2026-01-21 14:00:00 +0800
 categories: [Motor Control, Engineering]
 tags: [PMSM]

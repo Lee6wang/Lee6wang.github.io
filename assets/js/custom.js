@@ -30,7 +30,45 @@ function getCurrentTheme() {
   return "light";
 }
 
+function isHomePage() {
+  const baseUrl = window.siteBaseUrl || '';
+  const homePath = `${baseUrl}/`.replace(/\/{2,}/g, '/');
+  const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
+  return currentPath === homePath;
+}
+
+function ensureBackgroundLayer() {
+  const vantaEl = document.getElementById("vanta-bg");
+  const staticEl = document.getElementById("static-bg");
+
+  if (isHomePage()) {
+    if (staticEl) staticEl.remove();
+    if (!vantaEl) {
+      const el = document.createElement("div");
+      el.id = "vanta-bg";
+      document.body.prepend(el);
+    }
+    return;
+  }
+
+  if (vantaEffect) {
+    vantaEffect.destroy();
+    vantaEffect = null;
+  }
+
+  if (vantaEl) vantaEl.remove();
+  if (!staticEl) {
+    const el = document.createElement("div");
+    el.id = "static-bg";
+    document.body.prepend(el);
+  }
+}
+
 function initVanta() {
+  ensureBackgroundLayer();
+
+  if (!isHomePage()) return;
+
   const el = document.getElementById("vanta-bg");
   if (!el || typeof VANTA === "undefined") return;
 
