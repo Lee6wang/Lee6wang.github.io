@@ -4,7 +4,7 @@ title_en: "Understanding Embedded C Keywords: From static to volatile and the De
 translation_en: "2026-04-29-Embedded_C.md"
 date: 2026-04-29 00:00:00 +0800
 categories: [Engineering]
-tags: [Embeddedd]
+tags: [Embedded]
 ---
 
 # 嵌入式 C 语言关键词理解：从 `static` 到 `volatile`，真正影响工程稳定性的细节

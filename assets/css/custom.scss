@@ -1,7 +1,7 @@
 ---
 ---
 
-/* Vanta 背景层 */
+/* Legacy Vanta background layer kept for rollback compatibility. */
 #vanta-bg{
   position: fixed;
   inset: 0;
@@ -9,6 +9,51 @@
   height: 100vh;
   z-index: 0;           /* 不要 -1 */
   pointer-events: none;
+}
+
+#home-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(236, 245, 242, 0.9)),
+    #f8fafc;
+}
+
+#home-bg::before,
+#home-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+#home-bg::before {
+  background-image:
+    linear-gradient(rgba(49, 72, 94, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49, 72, 94, 0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 82%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 82%);
+}
+
+#home-bg::after {
+  background:
+    radial-gradient(circle at 80% 28%, rgba(20, 184, 166, 0.13), transparent 26rem),
+    radial-gradient(circle at 66% 82%, rgba(37, 99, 235, 0.08), transparent 24rem);
+}
+
+#home-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+  transform: translateZ(0);
 }
 
 /* 让正文在它上面（Chirpy 主容器通常叫 main-wrapper） */
@@ -62,7 +107,34 @@ html[data-mode="dark"] #static-bg::after {
     rgba(0, 0, 0, 0.3);
 }
 
+html[data-mode="dark"] #home-bg {
+  background:
+    linear-gradient(135deg, rgba(18, 22, 28, 0.98), rgba(17, 31, 34, 0.92)),
+    #12161c;
+}
+
+html[data-mode="dark"] #home-bg::before {
+  background-image:
+    linear-gradient(rgba(207, 216, 226, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(207, 216, 226, 0.07) 1px, transparent 1px);
+}
+
+html[data-mode="dark"] #home-bg::after {
+  background:
+    radial-gradient(circle at 78% 26%, rgba(45, 212, 191, 0.11), transparent 26rem),
+    radial-gradient(circle at 68% 80%, rgba(96, 165, 250, 0.1), transparent 24rem);
+}
+
+html[data-mode="dark"] #home-bg-canvas {
+  opacity: 0.76;
+  mix-blend-mode: screen;
+}
+
 @media (max-width: 768px) {
+  #home-bg-canvas {
+    opacity: 0.66;
+  }
+
   #static-bg::before {
     background-position: center;
   }
@@ -75,6 +147,12 @@ html[data-mode="dark"] #static-bg::after {
 
   html[data-mode="dark"] #static-bg::after {
     background: rgba(18, 18, 22, 0.88);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #home-bg-canvas {
+    display: none !important;
   }
 }
 
@@ -274,6 +352,7 @@ html[data-mode="dark"] #panel-wrapper .access > section {
 }
 
 .home-actions a:hover,
+.home-card-links a:hover,
 .home-link-card:hover,
 .home-list-item:hover,
 .home-photo:hover {
@@ -304,6 +383,10 @@ html[data-mode="dark"] #panel-wrapper .access > section {
 
 .home-grid-featured {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-grid-projects {
+  align-items: stretch;
 }
 
 .home-card {
@@ -344,6 +427,35 @@ html[data-mode="dark"] #panel-wrapper .access > section {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0;
+}
+
+.home-project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.home-card-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.15rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(48, 78, 118, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--link-color);
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .home-link-card {
@@ -405,15 +517,18 @@ html[data-mode="dark"] #panel-wrapper .access > section {
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
+.home-photo .img-link {
+  display: block;
+}
+
 .home-photo-image {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
-  background-position: center;
-  background-size: cover;
+  object-fit: cover;
 }
 
-.home-photo > span {
+.home-photo-caption {
   display: block;
   min-height: 3rem;
   padding: 0.65rem 0.75rem;
@@ -421,6 +536,7 @@ html[data-mode="dark"] #panel-wrapper .access > section {
   font-size: 0.92rem;
   font-weight: 650;
   line-height: 1.45;
+  text-decoration: none;
 }
 
 .home-slogan {
@@ -442,6 +558,7 @@ html[data-mode="dark"] .home-kicker {
 }
 
 html[data-mode="dark"] .home-actions a,
+html[data-mode="dark"] .home-card-links a,
 html[data-mode="dark"] .home-card,
 html[data-mode="dark"] .home-list-item,
 html[data-mode="dark"] .home-photo {
@@ -451,6 +568,7 @@ html[data-mode="dark"] .home-photo {
 }
 
 html[data-mode="dark"] .home-actions a:hover,
+html[data-mode="dark"] .home-card-links a:hover,
 html[data-mode="dark"] .home-link-card:hover,
 html[data-mode="dark"] .home-list-item:hover,
 html[data-mode="dark"] .home-photo:hover {

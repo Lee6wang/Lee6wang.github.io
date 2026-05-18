@@ -1,7 +1,8 @@
 ---
 layout: page
-title: 首页
-title_en: Home
+title: 机器人灵巧手与嵌入式工程实践
+title_en: Robotics and Embedded Engineering
+description: Haitao Li 的个人主页，记录机器人灵巧手、嵌入式系统、电机控制和工程工具链实践。
 permalink: /
 ---
 
@@ -14,27 +15,90 @@ permalink: /
   <h1>Haitao Li</h1>
 
   <div class="i18n-block" data-i18n-lang="zh">
-    目前从北京航空航天大学仪器科学与技术硕士阶段休学，正在全职推进机器人灵巧手项目。主要关注嵌入式控制、执行器驱动、电机控制、传感采集和工程工具链，也会在这里整理项目实践、调试记录、技术笔记和少量摄影作品。
+    我专注于机器人灵巧手相关的嵌入式控制、执行器驱动和电机控制工程。这个站点整理可公开的项目实践、调试记录和技术笔记，记录从硬件接口到固件、控制算法和工具链的系统化实现。
   </div>
 
   <div class="i18n-block" data-i18n-lang="en" hidden aria-hidden="true">
-    Currently on leave from the master's program in Instrument Science and Technology at Beihang University, I am working full-time on a dexterous robotic hand startup. I focus on embedded systems, robotics, motor control, and engineering toolchains, and this site collects my engineering notes, research exploration, and selected photography.
+    I work on embedded control, actuator drive, and motor-control engineering for dexterous robotic hands. This site collects public project notes, debugging records, and technical writing across hardware interfaces, firmware, control algorithms, and engineering toolchains.
   </div>
 
   <div class="home-actions">
+    <a href="#projects">
+      <span class="i18n-inline" data-i18n-lang="zh">项目实践</span>
+      <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Projects</span>
+    </a>
+    <a href="#featured-posts">
+      <span class="i18n-inline" data-i18n-lang="zh">技术文章</span>
+      <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Technical Writing</span>
+    </a>
     <a href="{{ '/about/' | relative_url }}">
       <span class="i18n-inline" data-i18n-lang="zh">关于我</span>
       <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">About</span>
     </a>
-    <a href="#featured-posts">
-      <span class="i18n-inline" data-i18n-lang="zh">精选文章</span>
-      <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Featured</span>
-    </a>
-    <a href="{{ '/photograph/' | relative_url }}">
-      <span class="i18n-inline" data-i18n-lang="zh">摄影</span>
-      <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Photograph</span>
-    </a>
     <a href="https://github.com/Lee6wang" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<section class="home-section" id="projects">
+  <div class="home-section-heading">
+    <span class="i18n-inline" data-i18n-lang="zh">项目实践</span>
+    <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Projects and Work</span>
+  </div>
+
+  <div class="home-grid home-grid-projects">
+    <article class="home-card home-project-card">
+      <p class="home-card-label">Robotic Hand</p>
+      <h2>
+        <span class="i18n-inline" data-i18n-lang="zh">灵巧手嵌入式系统</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Dexterous Hand Embedded System</span>
+      </h2>
+      <p>
+        <span class="i18n-inline" data-i18n-lang="zh">围绕关节执行器、传感采集、通信链路和系统调试，沉淀可复用的底层控制与工程验证方法。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Embedded control work around joint actuators, sensing, communication links, and system debugging, summarized at a non-sensitive level.</span>
+      </p>
+      <div class="home-card-links">
+        <a href="{{ '/about/' | relative_url }}">
+          <span class="i18n-inline" data-i18n-lang="zh">了解方向</span>
+          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">About the work</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="home-card home-project-card">
+      <p class="home-card-label">Motor Control</p>
+      <h2>
+        <span class="i18n-inline" data-i18n-lang="zh">PMSM / FOC 控制笔记</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">PMSM / FOC Control Notes</span>
+      </h2>
+      <p>
+        <span class="i18n-inline" data-i18n-lang="zh">从电机建模、SVPWM、编码器测角到电流环和带宽理解，连接控制理论与可调试实现。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Notes connecting control theory with debuggable implementation, from PMSM modeling and SVPWM to encoder feedback and loop tuning.</span>
+      </p>
+      <div class="home-card-links">
+        <a href="{{ '/posts/PMSM/' | relative_url }}">
+          <span class="i18n-inline" data-i18n-lang="zh">阅读笔记</span>
+          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Read notes</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="home-card home-project-card">
+      <p class="home-card-label">Firmware Workflow</p>
+      <h2>
+        <span class="i18n-inline" data-i18n-lang="zh">STM32 / RTOS 工程实践</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">STM32 / RTOS Engineering</span>
+      </h2>
+      <p>
+        <span class="i18n-inline" data-i18n-lang="zh">整理 Bootloader/IAP、FreeRTOS、CMake、VS Code 和底层 C 语言细节，服务长期可维护项目。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Practical notes on Bootloader/IAP, FreeRTOS, CMake, VS Code, and low-level C details for maintainable firmware projects.</span>
+      </p>
+      <div class="home-card-links">
+        <a href="{{ '/posts/BootLoader-IAP/' | relative_url }}">
+          <span class="i18n-inline" data-i18n-lang="zh">查看实践</span>
+          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">View practice</span>
+        </a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -167,13 +231,18 @@ permalink: /
 
   <div class="home-photo-grid">
     {% for p in site.data.photograph limit:3 %}
-      <a class="home-photo" href="{{ '/photograph/' | relative_url }}">
-        <span class="home-photo-image" style="background-image: url('{{ p.file | relative_url }}');" aria-hidden="true"></span>
-        <span>
+      <article class="home-photo">
+        <img
+          class="home-photo-image"
+          src="{{ p.file | relative_url }}"
+          alt="{{ p.title_zh | default: p.title | escape }}"
+          decoding="async"
+        >
+        <a class="home-photo-caption" href="{{ '/photograph/' | relative_url }}">
           <span class="i18n-inline" data-i18n-lang="zh">{{ p.title_zh | default: p.title }}</span>
           <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ p.title_en | default: p.title }}</span>
-        </span>
-      </a>
+        </a>
+      </article>
     {% endfor %}
   </div>
 </section>
