@@ -1,6 +1,6 @@
 ---
 layout: categories
-title: Categories
+title: 分类
 title_zh: 分类
 title_en: Categories
 icon: fas fa-stream
@@ -10,7 +10,7 @@ permalink: /categories/
 
 <section class="i18n-block" data-i18n-lang="zh" markdown="1">
 
-本页按工程领域组织文章。当前分类以 **Engineering** 为主类，并按 **STM32**、**RTOS**、**Motor Control**、**Toolchain** 等技术方向展开；**Reflection** 用于年度总结和个人记录。分类由每篇文章 front matter 中的 `categories` 字段自动生成。
+本页按工程领域组织文章。当前分类以 **工程** 为主类，并按 **STM32**、**RTOS**、**电机控制**、**工具链** 等技术方向展开；**随笔** 用于年度总结和个人记录。分类由每篇文章 front matter 中的 `categories` 字段自动生成。
 
 </section>
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Now
+title: 近况
 title_zh: 近况
 title_en: Now
 icon: fas fa-compass

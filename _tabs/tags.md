@@ -1,6 +1,6 @@
 ---
 layout: tags
-title: Tags
+title: 标签
 title_zh: 标签
 title_en: Tags
 icon: fas fa-tags

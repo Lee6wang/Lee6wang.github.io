@@ -51,7 +51,10 @@ permalink: /
 
   <div class="home-grid home-grid-featured">
     <a class="home-card home-link-card" href="{{ '/about/' | relative_url }}">
-      <p class="home-card-label">Profile</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">个人资料</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Profile</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">如果你想了解我</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you want to know me</span>
@@ -63,7 +66,10 @@ permalink: /
     </a>
 
     <a class="home-card home-link-card" href="{{ '/now/' | relative_url }}">
-      <p class="home-card-label">Now</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">近况</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Now</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">如果你想知道近况</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you want the current picture</span>
@@ -75,7 +81,10 @@ permalink: /
     </a>
 
     <a class="home-card home-link-card" href="{{ '/posts/FreeRtos01/' | relative_url }}">
-      <p class="home-card-label">Embedded</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">嵌入式</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Embedded</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">如果你在学嵌入式</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you are learning embedded systems</span>
@@ -87,7 +96,10 @@ permalink: /
     </a>
 
     <a class="home-card home-link-card" href="{{ '/posts/PMSM/' | relative_url }}">
-      <p class="home-card-label">Control</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">控制</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Control</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">如果你关注电机控制</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you care about motor control</span>
@@ -108,7 +120,10 @@ permalink: /
 
   <div class="home-grid home-grid-projects">
     <article class="home-card home-project-card">
-      <p class="home-card-label">Robotic Hand</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">灵巧手</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Robotic Hand</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">灵巧手嵌入式系统</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Dexterous Hand Embedded System</span>
@@ -126,7 +141,10 @@ permalink: /
     </article>
 
     <article class="home-card home-project-card">
-      <p class="home-card-label">Motor Control</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">电机控制</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Motor Control</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">PMSM / FOC 控制笔记</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">PMSM / FOC Control Notes</span>
@@ -144,7 +162,10 @@ permalink: /
     </article>
 
     <article class="home-card home-project-card">
-      <p class="home-card-label">Firmware Workflow</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">固件工作流</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Firmware Workflow</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">STM32 / RTOS 工程实践</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">STM32 / RTOS Engineering</span>
@@ -172,7 +193,10 @@ permalink: /
   <div class="home-series-grid">
     {% for series in site.data.series %}
       <article class="home-card home-series-card">
-        <p class="home-card-label">{{ series.label }}</p>
+        <p class="home-card-label">
+          <span class="i18n-inline" data-i18n-lang="zh">{{ series.label_zh | default: series.label }}</span>
+          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ series.label_en | default: series.label }}</span>
+        </p>
         <h2>
           <span class="i18n-inline" data-i18n-lang="zh">{{ series.title_zh }}</span>
           <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ series.title_en }}</span>
@@ -182,8 +206,11 @@ permalink: /
           <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ series.summary_en }}</span>
         </p>
         <div class="home-series-tags" aria-label="Series tags">
-          {% for tag in series.tags %}
-            <span>{{ tag }}</span>
+          {% for tag in series.tags_zh %}
+            <span class="i18n-inline" data-i18n-lang="zh">{{ tag }}</span>
+          {% endfor %}
+          {% for tag in series.tags_en %}
+            <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ tag }}</span>
           {% endfor %}
         </div>
         <div class="home-series-list">
@@ -213,7 +240,10 @@ permalink: /
 
   <div class="home-grid">
     <article class="home-card">
-      <p class="home-card-label">Firmware</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">固件</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Firmware</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">嵌入式控制系统</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Embedded and Firmware</span>
@@ -225,7 +255,10 @@ permalink: /
     </article>
 
     <article class="home-card">
-      <p class="home-card-label">Control</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">控制</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Control</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">执行器与运动控制</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Motor Control and Robotics</span>
@@ -237,7 +270,10 @@ permalink: /
     </article>
 
     <article class="home-card">
-      <p class="home-card-label">Workflow</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">工作流</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Workflow</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">工程工具链</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Toolchains and Notes</span>
@@ -294,7 +330,10 @@ permalink: /
     </a>
 
     <a class="home-card home-link-card" href="{{ '/posts/vscode-cmake-workflow/' | relative_url }}">
-      <p class="home-card-label">Toolchain</p>
+      <p class="home-card-label">
+        <span class="i18n-inline" data-i18n-lang="zh">工具链</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Toolchain</span>
+      </p>
       <h2>
         <span class="i18n-inline" data-i18n-lang="zh">VS Code + CMake 嵌入式工作流</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">VS Code + CMake Workflow</span>
@@ -350,4 +389,7 @@ permalink: /
   </div>
 </section>
 
-<p class="home-slogan">Make it work. Make it better.</p>
+<p class="home-slogan">
+  <span class="i18n-inline" data-i18n-lang="zh">先让它跑起来，再把它做得更好。</span>
+  <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Make it work. Make it better.</span>
+</p>

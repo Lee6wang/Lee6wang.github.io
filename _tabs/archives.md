@@ -1,6 +1,6 @@
 ---
 layout: archives
-title: Archives
+title: 归档
 title_zh: 归档
 title_en: Archives
 icon: fas fa-archive

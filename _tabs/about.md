@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: 关于
 title_zh: 关于
 title_en: About
 icon: fas fa-info-circle

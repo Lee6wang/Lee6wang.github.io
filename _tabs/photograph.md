@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Photograph
+title: 摄影
 title_zh: 摄影
 title_en: Photograph
 icon: fas fa-camera
@@ -10,7 +10,7 @@ permalink: /photograph/
 
 <section class="i18n-block" data-i18n-lang="zh" markdown="1">
 
-# 📷 摄影
+# 摄影
 
 我喜欢捕捉日常生活中的瞬间、光线和场景。
 这个页面收集了一些我喜欢的照片。
@@ -21,7 +21,7 @@ permalink: /photograph/
 
 <section class="i18n-block" data-i18n-lang="en" markdown="1" hidden aria-hidden="true">
 
-# 📷 Photograph
+# Photograph
 
 I enjoy capturing moments, light, and scenes from my daily life.  
 This page collects some of my favorite photos.

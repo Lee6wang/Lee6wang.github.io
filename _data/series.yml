@@ -1,11 +1,15 @@
 - key: freertos
   label: RTOS
+  label_zh: RTOS
+  label_en: RTOS
   title_zh: FreeRTOS 工程化
   title_en: Engineering FreeRTOS
   summary_zh: 从任务、时间、内存、同步、中断到工程模板，按真实项目中的风险点组织 FreeRTOS 学习路径。
   summary_en: A practical FreeRTOS path from tasks, timing, memory, synchronization, and interrupts to maintainable project templates.
   start_url: /posts/FreeRtos01/
   tags: [FreeRTOS, RTOS, Firmware]
+  tags_zh: [FreeRTOS, RTOS, 固件]
+  tags_en: [FreeRTOS, RTOS, Firmware]
   posts:
     - title_zh: 正确理解 FreeRTOS
       title_en: Understanding FreeRTOS Correctly
@@ -28,12 +32,16 @@
 
 - key: motor-control
   label: Control
+  label_zh: 控制
+  label_en: Control
   title_zh: PMSM / FOC 电机控制
   title_en: PMSM / FOC Motor Control
   summary_zh: 围绕 PMSM 建模、SVPWM、编码器测角、电流环、速度环和带宽理解，串起电机控制的理论与实现。
   summary_en: A motor-control path linking PMSM modeling, SVPWM, encoder feedback, current loops, speed loops, and bandwidth.
   start_url: /posts/PMSM/
   tags: [PMSM, FOC, SVPWM]
+  tags_zh: [PMSM, FOC, SVPWM]
+  tags_en: [PMSM, FOC, SVPWM]
   posts:
     - title_zh: 从传递函数走向状态空间
       title_en: From Transfer Functions to State Space
@@ -56,12 +64,16 @@
 
 - key: stm32
   label: STM32
+  label_zh: STM32
+  label_en: STM32
   title_zh: STM32 底层与启动链路
   title_en: STM32 Low-Level Startup Path
   summary_zh: 从上电启动、时钟树、向量表、Bootloader/IAP 到固件升级路径，梳理 MCU 系统启动和维护链路。
   summary_en: Notes on MCU startup and maintenance, covering boot flow, clock trees, vector tables, Bootloader/IAP, and upgrade paths.
   start_url: /posts/BootLoader-IAP/
   tags: [STM32, Bootloader, Clock]
+  tags_zh: [STM32, Bootloader, 时钟]
+  tags_en: [STM32, Bootloader, Clock]
   posts:
     - title_zh: 上电到 main 函数
       title_en: Power-On to main()
@@ -78,12 +90,16 @@
 
 - key: toolchain
   label: Workflow
+  label_zh: 工作流
+  label_en: Workflow
   title_zh: 工程工具链
   title_en: Engineering Toolchains
   summary_zh: 整理 VS Code、CMake、嵌入式 C、开发环境和工作区组织，降低项目复现、迁移和协作成本。
   summary_en: Notes on VS Code, CMake, embedded C, development environments, and workspace organization for reproducible engineering.
   start_url: /posts/vscode-cmake-workflow/
   tags: [CMake, Embedded C, Workflow]
+  tags_zh: [CMake, 嵌入式 C, 工作流]
+  tags_en: [CMake, Embedded C, Workflow]
   posts:
     - title_zh: VS Code + CMake 工作流
       title_en: VS Code + CMake Workflow
