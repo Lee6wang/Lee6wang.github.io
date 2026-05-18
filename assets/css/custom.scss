@@ -24,11 +24,223 @@
   width: 100vw;
   height: 100vh;
   z-index: 0;
+  overflow: hidden;
   pointer-events: none;
+}
+
+#static-bg::before,
+#static-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+#static-bg::before {
+  inset: -8vh -8vw;
   background-image: url('/assets/images/background.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: 70% center;
   background-repeat: no-repeat;
+  filter: saturate(0.92);
+}
+
+#static-bg::after {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.76)),
+    rgba(255, 255, 255, 0.32);
+  -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1.5px);
+}
+
+html[data-mode="dark"] #static-bg::before {
+  filter: brightness(0.68) saturate(0.85);
+}
+
+html[data-mode="dark"] #static-bg::after {
+  background:
+    linear-gradient(90deg, rgba(20, 20, 24, 0.92), rgba(20, 20, 24, 0.74)),
+    rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  #static-bg::before {
+    background-position: center;
+  }
+
+  #static-bg::after {
+    background: rgba(255, 255, 255, 0.86);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  html[data-mode="dark"] #static-bg::after {
+    background: rgba(18, 18, 22, 0.88);
+  }
+}
+
+#topbar-wrapper {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+main article:has(#archives) {
+  margin-top: 1.5rem;
+  padding: 2rem 2.25rem 2.25rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 1rem 3rem rgba(31, 41, 55, 0.1);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+main article:has(#archives) .dynamic-title {
+  margin-bottom: 1.5rem;
+}
+
+#archives {
+  --archive-axis-x: 5.8rem;
+  --archive-title-offset: 4.25rem;
+  --archive-year-dot-offset: 2.9rem;
+
+  letter-spacing: 0;
+}
+
+#archives ul {
+  margin-bottom: 1.75rem;
+}
+
+#archives ul li {
+  position: relative;
+  margin: 0.15rem 0;
+  padding-right: 0.85rem;
+  border-radius: 8px;
+  line-height: 2.85rem;
+}
+
+#archives ul li:nth-child(odd) {
+  background: transparent;
+  background-image: none;
+}
+
+#archives ul li:hover {
+  background: rgba(0, 86, 178, 0.06);
+}
+
+#archives .date {
+  color: var(--text-muted-color);
+  right: 0;
+}
+
+#archives .date.day {
+  width: 1.6rem;
+  text-align: right;
+}
+
+#archives .date.month {
+  width: 2.25rem;
+  text-align: left;
+}
+
+#archives a {
+  display: inline-block;
+  position: static;
+  max-width: calc(100% - 10.75rem);
+  margin-left: var(--archive-title-offset);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  top: auto;
+  vertical-align: middle;
+}
+
+#archives ul li::before,
+#archives .year:first-child::before,
+#archives .year::before {
+  left: var(--archive-axis-x);
+  background-color: rgba(47, 67, 88, 0.16);
+}
+
+#archives .year::before {
+  left: calc(var(--archive-axis-x) + 0.125rem);
+}
+
+#archives .year::after {
+  left: var(--archive-year-dot-offset);
+}
+
+#archives a::before {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--archive-axis-x) - 0.125rem);
+  float: none;
+  background-color: rgba(91, 114, 138, 0.72);
+  box-shadow: none;
+  transform: translateY(-50%);
+}
+
+#panel-wrapper .access > section {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.58);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+#panel-wrapper .access > section:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+html[data-mode="dark"] #topbar-wrapper {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-mode="dark"] main article:has(#archives) {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(22, 24, 30, 0.78);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.28);
+}
+
+html[data-mode="dark"] #archives ul li:hover {
+  background: rgba(138, 180, 248, 0.08);
+}
+
+html[data-mode="dark"] #archives ul li::before,
+html[data-mode="dark"] #archives .year:first-child::before,
+html[data-mode="dark"] #archives .year::before {
+  background-color: rgba(150, 152, 156, 0.36);
+}
+
+html[data-mode="dark"] #archives a::before {
+  background-color: rgba(150, 152, 156, 0.88);
+}
+
+html[data-mode="dark"] #panel-wrapper .access > section {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(22, 24, 30, 0.62);
+}
+
+@media (max-width: 768px) {
+  main article:has(#archives) {
+    margin-top: 0.75rem;
+    padding: 1.25rem 0.9rem 1.5rem !important;
+  }
+
+  #archives {
+    --archive-axis-x: 5rem;
+    --archive-title-offset: 3rem;
+    --archive-year-dot-offset: 2.1rem;
+  }
+
+  #archives ul li {
+    padding-right: 0.5rem;
+    line-height: 2.65rem;
+  }
+
+  #archives a {
+    max-width: calc(100% - 8.25rem);
+  }
 }
 
 .i18n-block,
