@@ -1,6 +1,7 @@
 ---
 layout: archives
-title: 归档
+title: Archives
+title_zh: 归档
 title_en: Archives
 icon: fas fa-archive
 order: 2

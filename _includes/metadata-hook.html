@@ -6,13 +6,20 @@
 
 <script id="site-i18n-data" type="application/json">
 {
+  "site": {
+    "title": {{ site.title | jsonify }},
+    "tagline": {
+      "zh": {{ site.tagline | jsonify }},
+      "en": "Embedded Systems & Robotics Developer"
+    }
+  },
   "paths": {
     "{{ '/' | relative_url }}": {
       "zh": "首页",
       "en": "Home"
     }{% for tab in site.tabs %},
     "{{ tab.url | relative_url }}": {
-      "zh": {{ tab.title | jsonify }},
+      "zh": {{ tab.title_zh | default: tab.title | jsonify }},
       "en": {{ tab.title_en | default: tab.title | jsonify }}
     }{% endfor %}
   },
@@ -23,11 +30,67 @@
       "en": {{ post.title_en | default: post.title | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
+  },
+  "ui": {
+    "pairs": [
+      ["首页", "Home"],
+      ["关于", "About"],
+      ["归档", "Archives"],
+      ["分类", "Categories"],
+      ["标签", "Tags"],
+      ["摄影", "Photograph"],
+      ["搜索", "Search"],
+      ["取消", "Cancel"],
+      ["文章", "Posts"],
+      ["文章内容", "Contents"],
+      ["最近更新", "Recently Updated"],
+      ["热门标签", "Trending Tags"],
+      ["阅读更多", "Read More"],
+      ["上一篇", "Previous"],
+      ["下一篇", "Next"],
+      ["发表于", "Posted"],
+      ["更新于", "Updated"],
+      ["作者", "By"],
+      ["分享", "Share"],
+      ["相关文章", "Related Posts"],
+      ["阅读", "Read"],
+      ["分钟", "min"],
+      ["保留部分权利。", "Some rights reserved."],
+      ["本站采用", "Using the"],
+      ["主题", "theme"],
+      ["发现新版本的内容。", "A new version of content is available."],
+      ["更新", "Update"],
+      ["嵌入式系统与机器人开发者", "Embedded Systems & Robotics Developer"]
+    ],
+    "category": {
+      "zh": {
+        "category_one": "个分类",
+        "category_other": "个分类",
+        "post_one": "篇文章",
+        "post_other": "篇文章"
+      },
+      "en": {
+        "category_one": "category",
+        "category_other": "categories",
+        "post_one": "post",
+        "post_other": "posts"
+      }
+    },
+    "read_time": {
+      "zh": {
+        "prefix": "阅读",
+        "unit": "分钟"
+      },
+      "en": {
+        "prefix": "Read",
+        "unit": "min"
+      }
+    }
   }
 }
 </script>
 
 <script defer src="{{ '/assets/lib/three.r134.min.js' | relative_url }}"></script>
 <script defer src="{{ '/assets/lib/vanta.net.min.js' | relative_url }}"></script>
-<script defer src="{{ '/assets/js/custom.js' | relative_url }}"></script>
-<script defer src="{{ '/assets/js/i18n.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/custom.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script defer src="{{ '/assets/js/i18n.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

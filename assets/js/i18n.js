@@ -1,28 +1,11 @@
 /**
- * Lightweight bilingual switcher for static Chirpy pages.
- * Page bodies use paired elements with data-i18n-lang="zh" and "en".
+ * Same-page bilingual switcher for static Chirpy pages.
+ * Content blocks use data-i18n-lang="zh" and data-i18n-lang="en".
  */
 
 (() => {
   const storageKey = 'site-language';
   const validLanguages = new Set(['zh', 'en']);
-
-  const staticPairs = [
-    ['首页', 'Home'],
-    ['关于', 'About'],
-    ['归档', 'Archives'],
-    ['分类', 'Categories'],
-    ['标签', 'Tags'],
-    ['摄影', 'Photograph'],
-    ['搜索', 'Search'],
-    ['文章', 'Posts'],
-    ['目录', 'Contents'],
-    ['最近更新', 'Recently Updated'],
-    ['阅读全文', 'Read More'],
-    ['上一篇', 'Previous'],
-    ['下一篇', 'Next'],
-    ['嵌入式系统与机器人开发者', 'Embedded Systems & Robotics Developer']
-  ];
 
   function normalizeLanguage(lang) {
     if (!lang) return null;
@@ -40,19 +23,18 @@
       stored = null;
     }
 
-    if (stored) return stored;
-    return normalizeLanguage(navigator.language) || 'zh';
+    return stored || normalizeLanguage(navigator.language) || 'zh';
   }
 
   function readI18nData() {
     const node = document.getElementById('site-i18n-data');
-    if (!node) return { paths: {}, posts: {} };
+    if (!node) return { site: {}, paths: {}, posts: {}, ui: { pairs: [] } };
 
     try {
       return JSON.parse(node.textContent);
     } catch (error) {
       console.warn('Failed to parse i18n data.', error);
-      return { paths: {}, posts: {} };
+      return { site: {}, paths: {}, posts: {}, ui: { pairs: [] } };
     }
   }
 
@@ -69,28 +51,23 @@
     }
   }
 
-  function collectPairs() {
-    const data = readI18nData();
-    const pairs = [...staticPairs];
-    const pathLabels = { ...(data.paths || {}), ...(data.posts || {}) };
+  function allLabels(data) {
+    return { ...(data.paths || {}), ...(data.posts || {}) };
+  }
 
-    Object.values(pathLabels).forEach((label) => {
-      if (label && label.zh && label.en) {
-        pairs.push([label.zh, label.en]);
-      }
+  function buildPairs(data) {
+    const pairs = [...((data.ui && data.ui.pairs) || [])];
+    Object.values(allLabels(data)).forEach((label) => {
+      if (label && label.zh && label.en) pairs.push([label.zh, label.en]);
     });
-
-    return { pairs, pathLabels };
+    return pairs;
   }
 
   function buildTextMap(lang, pairs) {
     const map = new Map();
     pairs.forEach(([zh, en]) => {
-      if (lang === 'zh') {
-        map.set(en, zh);
-      } else {
-        map.set(zh, en);
-      }
+      if (!zh || !en || zh === en) return;
+      map.set(lang === 'zh' ? en : zh, lang === 'zh' ? zh : en);
     });
     return map;
   }
@@ -98,7 +75,11 @@
   function shouldSkipTextNode(node) {
     const parent = node.parentElement;
     if (!parent) return true;
-    return Boolean(parent.closest('script, style, code, pre, kbd, samp, mjx-container, .i18n-block, .i18n-inline, [data-no-i18n]'));
+    return Boolean(
+      parent.closest(
+        'script, style, code, pre, kbd, samp, mjx-container, .i18n-block, .i18n-inline, [data-no-i18n]'
+      )
+    );
   }
 
   function replaceKeepingSpace(value, replacement) {
@@ -107,14 +88,12 @@
     return `${leading}${replacement}${trailing}`;
   }
 
-  function translateExactText(lang, pairs) {
-    const textMap = buildTextMap(lang, pairs);
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  function translateExactText(lang, data) {
+    const textMap = buildTextMap(lang, buildPairs(data));
+    const walker = document.createTreeWalker(document.body, 4);
     const nodes = [];
 
-    while (walker.nextNode()) {
-      nodes.push(walker.currentNode);
-    }
+    while (walker.nextNode()) nodes.push(walker.currentNode);
 
     nodes.forEach((node) => {
       if (shouldSkipTextNode(node)) return;
@@ -125,19 +104,38 @@
       }
     });
 
-    textMap.forEach((to, from) => {
-      if (document.title.includes(from)) {
-        document.title = document.title.replace(from, to);
-      }
+    translateAttributes(textMap);
+  }
+
+  function translateAttributes(textMap) {
+    const attrs = ['aria-label', 'title', 'data-bs-title', 'data-bs-original-title', 'placeholder'];
+
+    document.querySelectorAll('*').forEach((node) => {
+      attrs.forEach((attr) => {
+        if (!node.hasAttribute(attr)) return;
+        const value = node.getAttribute(attr).trim();
+        if (textMap.has(value)) {
+          node.setAttribute(attr, textMap.get(value));
+        }
+      });
     });
   }
 
-  function translatePathLabels(lang, pathLabels) {
+  function translatePathLabels(lang, data) {
+    const labels = allLabels(data);
+
     document.querySelectorAll('a[href]').forEach((link) => {
-      const label = pathLabels[normalizePath(link.getAttribute('href'))];
+      const label = labels[normalizePath(link.getAttribute('href'))];
       if (!label || !label[lang]) return;
 
-      const target = link.querySelector('h1, h2, h3, h4, span') || (link.children.length === 0 ? link : null);
+      const candidates = [
+        link.querySelector('.card-title'),
+        link.querySelector('h1, h2, h3, h4, h5, h6'),
+        link.querySelector('p'),
+        link.querySelector('span:not(.me-2):not(.me-1)')
+      ].filter(Boolean);
+
+      const target = candidates[0] || (link.children.length === 0 ? link : null);
       if (!target) return;
 
       const text = target.textContent.trim();
@@ -152,6 +150,134 @@
       const isActive = node.getAttribute('data-i18n-lang') === lang;
       node.hidden = !isActive;
       node.setAttribute('aria-hidden', String(!isActive));
+
+      node.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
+        if (isActive) {
+          heading.removeAttribute('data-toc-skip');
+        } else {
+          heading.setAttribute('data-toc-skip', '');
+        }
+      });
+    });
+  }
+
+  function currentLabel(data) {
+    const path = normalizePath(window.location.href);
+    const labels = allLabels(data);
+    return labels[path] || null;
+  }
+
+  function updateDocumentTitle(lang, data) {
+    const label = currentLabel(data);
+    const siteTitle = data.site && data.site.title ? data.site.title : '';
+    if (!label || !label[lang] || !siteTitle) return;
+
+    document.title = `${label[lang]} | ${siteTitle}`;
+  }
+
+  function updatePostChrome(lang, data) {
+    const label = currentLabel(data);
+    if (!label || !label[lang]) return;
+
+    const titleNodes = [
+      document.querySelector('article header h1'),
+      document.querySelector('#toc-bar .label'),
+      document.querySelector('#toc-popup .header .label')
+    ].filter(Boolean);
+
+    titleNodes.forEach((node) => {
+      const text = node.textContent.trim();
+      if (text === label.zh || text === label.en) {
+        node.textContent = label[lang];
+      }
+    });
+  }
+
+  function plural(n, one, other) {
+    return Number(n) === 1 ? one : other;
+  }
+
+  function replaceCategoryText(value, lang, data) {
+    const category = data.ui && data.ui.category;
+    if (!category) return value;
+
+    const zh = category.zh;
+    const en = category.en;
+    const trimmed = value.trim();
+
+    let match = trimmed.match(/^(\d+)\s*个分类\s*,\s*(\d+)\s*篇文章$/);
+    if (match && lang === 'en') {
+      const categories = Number(match[1]);
+      const posts = Number(match[2]);
+      return `${categories} ${plural(categories, en.category_one, en.category_other)}, ${posts} ${plural(
+        posts,
+        en.post_one,
+        en.post_other
+      )}`;
+    }
+
+    match = trimmed.match(/^(\d+)\s*篇文章$/);
+    if (match && lang === 'en') {
+      const posts = Number(match[1]);
+      return `${posts} ${plural(posts, en.post_one, en.post_other)}`;
+    }
+
+    match = trimmed.match(/^(\d+)\s+categor(?:y|ies)\s*,\s*(\d+)\s+posts?$/i);
+    if (match && lang === 'zh') {
+      return `${match[1]} ${zh.category_other} , ${match[2]} ${zh.post_other}`;
+    }
+
+    match = trimmed.match(/^(\d+)\s+posts?$/i);
+    if (match && lang === 'zh') {
+      return `${match[1]} ${zh.post_other}`;
+    }
+
+    return value;
+  }
+
+  function replaceReadTimeText(value, lang) {
+    const trimmed = value.trim();
+    let match = trimmed.match(/^阅读\s*(\d+)\s*分钟$/);
+    if (match && lang === 'en') return `Read ${match[1]} min`;
+
+    match = trimmed.match(/^Read\s*(\d+)\s*min$/i);
+    if (match && lang === 'zh') return `阅读 ${match[1]} 分钟`;
+
+    match = trimmed.match(/^(\d+)\s*分钟$/);
+    if (match && lang === 'en') return `${match[1]} min`;
+
+    match = trimmed.match(/^(\d+)\s*min$/i);
+    if (match && lang === 'zh') return `${match[1]} 分钟`;
+
+    return value;
+  }
+
+  function translatePatternText(lang, data) {
+    const walker = document.createTreeWalker(document.body, 4);
+    const nodes = [];
+
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach((node) => {
+      if (shouldSkipTextNode(node)) return;
+
+      let next = replaceCategoryText(node.nodeValue, lang, data);
+      next = replaceReadTimeText(next, lang);
+      if (next !== node.nodeValue) {
+        node.nodeValue = replaceKeepingSpace(node.nodeValue, next.trim());
+      }
+    });
+  }
+
+  function updateSiteTagline(lang, data) {
+    const tagline = data.site && data.site.tagline;
+    if (!tagline || !tagline[lang]) return;
+
+    document.querySelectorAll('#sidebar .site-subtitle, #sidebar .site-title + p').forEach((node) => {
+      const text = node.textContent.trim();
+      if (text === tagline.zh || text === tagline.en) {
+        node.textContent = tagline[lang];
+      }
     });
   }
 
@@ -173,24 +299,41 @@
     switcher.setAttribute('data-i18n-switcher', '');
     switcher.setAttribute('aria-label', 'Language switcher');
     switcher.innerHTML = [
-      '<button type="button" data-lang-option="zh" aria-pressed="false">中</button>',
-      '<button type="button" data-lang-option="en" aria-pressed="false">EN</button>'
+      '<button type="button" data-lang-option="zh" aria-pressed="false" title="中文">中</button>',
+      '<button type="button" data-lang-option="en" aria-pressed="false" title="English">EN</button>'
     ].join('');
 
     document.body.appendChild(switcher);
   }
 
+  function refreshToc() {
+    window.requestAnimationFrame(() => {
+      try {
+        if (window.tocbot && typeof window.tocbot.refresh === 'function') {
+          window.tocbot.refresh();
+        }
+      } catch (error) {
+        // TOC refresh is best-effort because Chirpy owns the initial tocbot config.
+      }
+    });
+  }
+
   function applyLanguage(lang = preferredLanguage()) {
     if (!validLanguages.has(lang)) return;
 
-    const { pairs, pathLabels } = collectPairs();
+    const data = readI18nData();
     document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
     document.documentElement.setAttribute('data-site-lang', lang);
 
     toggleContentBlocks(lang);
-    translatePathLabels(lang, pathLabels);
-    translateExactText(lang, pairs);
+    translatePathLabels(lang, data);
+    translateExactText(lang, data);
+    translatePatternText(lang, data);
+    updateSiteTagline(lang, data);
+    updatePostChrome(lang, data);
+    updateDocumentTitle(lang, data);
     updateSwitcher(lang);
+    refreshToc();
   }
 
   function setLanguage(lang) {

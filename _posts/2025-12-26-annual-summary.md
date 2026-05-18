@@ -1,6 +1,7 @@
 ---
 title: "2025的我，思考了哪些"
 title_en: "What I Thought About in 2025"
+translation_en: "2025-12-26-annual-summary.md"
 date: 2025-12-26 12:00:00 +0800
 categories: [Reflection, "2025"]
 tags: [Reflection, "2025"]

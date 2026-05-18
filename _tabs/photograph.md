@@ -1,6 +1,7 @@
 ---
 layout: page
-title: 摄影
+title: Photograph
+title_zh: 摄影
 title_en: Photograph
 icon: fas fa-camera
 order: 5

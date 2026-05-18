@@ -1,6 +1,7 @@
 ---
 title: "VS Code + CMake 嵌入式通用工作流"
 title_en: "A General Embedded Workflow with VS Code and CMake"
+translation_en: "2025-12-19-vscode-cmake-workflow.md"
 date: 2025-12-19 22:00:00 +0800
 categories: [Basic,Embedded]
 tags: [VSCODE]
