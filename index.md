@@ -390,6 +390,6 @@ permalink: /
 </section>
 
 <p class="home-slogan">
-  <span class="i18n-inline" data-i18n-lang="zh">先让它跑起来，再把它做得更好。</span>
+  <span class="i18n-inline" data-i18n-lang="zh">先求可行，再臻完善。</span>
   <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Make it work. Make it better.</span>
 </p>
