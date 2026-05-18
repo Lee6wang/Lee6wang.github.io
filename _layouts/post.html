@@ -146,13 +146,11 @@ script_includes:
       {{ content }}
     </section>
 
-    <section class="i18n-block i18n-post-body" data-i18n-lang="en" hidden aria-hidden="true" markdown="1">
+    <section class="i18n-block i18n-post-body" data-i18n-lang="en" hidden aria-hidden="true">
       {% if page.translation_en %}
         {% capture translation_path %}i18n-posts/en/{{ page.translation_en }}{% endcapture %}
-        {% capture translation_en %}
-          {% include {{ translation_path }} %}
-        {% endcapture %}
-        {{ translation_en | markdownify }}
+        {% capture translation_en %}{% include {{ translation_path }} %}{% endcapture %}
+        {{ translation_en | strip | markdownify }}
       {% else %}
         <p>This article is currently available in Chinese. An English body translation has not been added yet.</p>
       {% endif %}
