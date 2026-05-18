@@ -14,7 +14,7 @@ permalink: /
   <h1>Haitao Li</h1>
 
   <div class="i18n-block" data-i18n-lang="zh">
-    目前从北京航空航天大学仪器科学与技术硕士阶段休学，正在全职创业，方向是机器人灵巧手。我关注嵌入式系统、机器人、电机控制和工程工具链，也在这里记录工程实践、技术笔记、研究探索，以及少量摄影作品。
+    目前从北京航空航天大学仪器科学与技术硕士阶段休学，正在全职推进机器人灵巧手项目。主要关注嵌入式控制、执行器驱动、电机控制、传感采集和工程工具链，也会在这里整理项目实践、调试记录、技术笔记和少量摄影作品。
   </div>
 
   <div class="i18n-block" data-i18n-lang="en" hidden aria-hidden="true">
@@ -40,7 +40,7 @@ permalink: /
 
 <section class="home-section">
   <div class="home-section-heading">
-    <span class="i18n-inline" data-i18n-lang="zh">研究与工程方向</span>
+    <span class="i18n-inline" data-i18n-lang="zh">技术方向</span>
     <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Research and Engineering Interests</span>
   </div>
 
@@ -48,11 +48,11 @@ permalink: /
     <article class="home-card">
       <p class="home-card-label">Firmware</p>
       <h2>
-        <span class="i18n-inline" data-i18n-lang="zh">嵌入式与固件</span>
+        <span class="i18n-inline" data-i18n-lang="zh">嵌入式控制系统</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Embedded and Firmware</span>
       </h2>
       <p>
-        <span class="i18n-inline" data-i18n-lang="zh">STM32、FreeRTOS、Bootloader/IAP、外设驱动和通信协议，重点关注可维护的 MCU 工程实现。</span>
+        <span class="i18n-inline" data-i18n-lang="zh">围绕 STM32、FreeRTOS、Bootloader/IAP、外设驱动和通信协议，构建可调试、可维护、可迭代的 MCU 控制系统。</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">STM32, FreeRTOS, Bootloader/IAP, peripheral drivers, and communication protocols with a focus on maintainable MCU projects.</span>
       </p>
     </article>
@@ -60,11 +60,11 @@ permalink: /
     <article class="home-card">
       <p class="home-card-label">Control</p>
       <h2>
-        <span class="i18n-inline" data-i18n-lang="zh">电机控制与机器人</span>
+        <span class="i18n-inline" data-i18n-lang="zh">执行器与运动控制</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Motor Control and Robotics</span>
       </h2>
       <p>
-        <span class="i18n-inline" data-i18n-lang="zh">从 PMSM 数学建模、FOC、SVPWM 到现代控制和机器人系统集成，连接理论推导与工程落地。</span>
+        <span class="i18n-inline" data-i18n-lang="zh">面向机器人灵巧手的关节执行器，关注 PMSM 建模、FOC、SVPWM、传感反馈和控制参数整定。</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">From PMSM modeling, FOC, and SVPWM to modern control and robotic system integration, connecting theory with implementation.</span>
       </p>
     </article>
@@ -72,11 +72,11 @@ permalink: /
     <article class="home-card">
       <p class="home-card-label">Workflow</p>
       <h2>
-        <span class="i18n-inline" data-i18n-lang="zh">工程工具链与笔记</span>
+        <span class="i18n-inline" data-i18n-lang="zh">工程工具链</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Toolchains and Notes</span>
       </h2>
       <p>
-        <span class="i18n-inline" data-i18n-lang="zh">整理跨平台开发、CMake、VS Code、调试流程和底层 C 语言细节，让项目更容易复现和迭代。</span>
+        <span class="i18n-inline" data-i18n-lang="zh">整理 CMake、VS Code、交叉编译、调试流程和底层 C 语言细节，降低项目复现和协作成本。</span>
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Notes on cross-platform development, CMake, VS Code, debugging workflows, and low-level C details for reproducible engineering.</span>
       </p>
     </article>
