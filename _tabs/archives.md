@@ -10,14 +10,12 @@ permalink: /archives/
 
 <section class="i18n-block" data-i18n-lang="zh" markdown="1">
 
-本页按年份展示站点中的全部文章。
-下面的归档列表会根据已发布文章自动生成。
+本页按时间线浏览所有已发布文章，适合从最近更新往前回看，也可以配合分类页按工程方向继续阅读。归档列表由 Jekyll 根据文章日期自动生成。
 
 </section>
 
 <section class="i18n-block" data-i18n-lang="en" markdown="1" hidden aria-hidden="true">
 
-This page displays all posts on this site sorted by year.  
-The archive list below is generated automatically based on the posts published.
+Browse all published posts by timeline. Use this page to review recent updates first, then continue through the category pages by engineering topic. The archive list is generated automatically from post dates.
 
 </section>

@@ -4,7 +4,7 @@ title_en: "The Design Philosophy and Engineering Consequences of the STM32 Clock
 translation_en: "2026-01-19-clocktotal.md"
 date: 2026-01-19 22:00:00 +0800
 categories: [Engineering, STM32]
-tags: [STM32]
+tags: [STM32, Clock]
 ---
 
 # STM32 时钟架构的设计哲学与工程后果

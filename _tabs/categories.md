@@ -10,22 +10,12 @@ permalink: /categories/
 
 <section class="i18n-block" data-i18n-lang="zh" markdown="1">
 
-欢迎来到 **分类** 页面。
-
-你可以在这里按主题浏览全部文章。
-分类会根据每篇文章 front matter 中的 `categories` 字段自动生成。
-随着我继续写嵌入式系统、机器人、智能装备和科研笔记等内容，
-新的分类也会动态出现在这里。
+本页按工程领域组织文章。当前分类以 **Engineering** 为主类，并按 **STM32**、**RTOS**、**Motor Control**、**Toolchain** 等技术方向展开；**Reflection** 用于年度总结和个人记录。分类由每篇文章 front matter 中的 `categories` 字段自动生成。
 
 </section>
 
 <section class="i18n-block" data-i18n-lang="en" markdown="1" hidden aria-hidden="true">
 
-Welcome to the **Categories** page.
-
-Here you can browse all posts grouped by topic.  
-Categories are generated automatically based on the `categories` field in each post.
-As I continue writing about embedded systems, robotics, intelligent equipment, and research notes,
-new categories will appear here dynamically.
+This page organizes posts by engineering domain. The current taxonomy uses **Engineering** as the main category, with **STM32**, **RTOS**, **Motor Control**, and **Toolchain** as technical directions; **Reflection** is reserved for yearly summaries and personal notes. Categories are generated from each post's `categories` field.
 
 </section>
