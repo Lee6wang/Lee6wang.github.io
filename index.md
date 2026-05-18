@@ -7,18 +7,18 @@ permalink: /
 
 <section class="home-hero">
   <p class="home-kicker">
-    <span class="i18n-inline" data-i18n-lang="zh">嵌入式系统 / 电机控制 / 机器人</span>
-    <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Embedded Systems / Motor Control / Robotics</span>
+    <span class="i18n-inline" data-i18n-lang="zh">机器人灵巧手 / 嵌入式系统 / 电机控制</span>
+    <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Dexterous Robotic Hands / Embedded Systems / Motor Control</span>
   </p>
 
   <h1>Haitao Li</h1>
 
   <div class="i18n-block" data-i18n-lang="zh">
-    北京航空航天大学仪器科学与技术硕士在读，关注嵌入式系统、机器人、电机控制和工程工具链。我在这里记录工程实践、技术笔记、研究探索，以及少量摄影作品。
+    目前从北京航空航天大学仪器科学与技术硕士阶段休学，正在全职创业，方向是机器人灵巧手。我关注嵌入式系统、机器人、电机控制和工程工具链，也在这里记录工程实践、技术笔记、研究探索，以及少量摄影作品。
   </div>
 
   <div class="i18n-block" data-i18n-lang="en" hidden aria-hidden="true">
-    Master's student in Instrument Science and Technology at Beihang University, focusing on embedded systems, robotics, motor control, and engineering toolchains. This site collects my engineering notes, research exploration, and selected photography.
+    Currently on leave from the master's program in Instrument Science and Technology at Beihang University, I am working full-time on a dexterous robotic hand startup. I focus on embedded systems, robotics, motor control, and engineering toolchains, and this site collects my engineering notes, research exploration, and selected photography.
   </div>
 
   <div class="home-actions">
