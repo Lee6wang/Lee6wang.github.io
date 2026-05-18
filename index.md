@@ -15,11 +15,11 @@ permalink: /
   <h1>Haitao Li</h1>
 
   <div class="i18n-block" data-i18n-lang="zh">
-    我专注于机器人灵巧手相关的嵌入式控制、执行器驱动和电机控制工程。这个站点整理可公开的项目实践、调试记录和技术笔记，记录从硬件接口到固件、控制算法和工具链的系统化实现。
+    我是 Haitao Li，正在全职推进机器人灵巧手方向创业，关注嵌入式系统、电机控制与执行器工程。这个站点整理可公开的项目实践、调试记录和技术笔记，记录从硬件接口到固件、控制算法和工具链的系统化实现。
   </div>
 
   <div class="i18n-block" data-i18n-lang="en" hidden aria-hidden="true">
-    I work on embedded control, actuator drive, and motor-control engineering for dexterous robotic hands. This site collects public project notes, debugging records, and technical writing across hardware interfaces, firmware, control algorithms, and engineering toolchains.
+    I am Haitao Li, working full-time on a dexterous robotic hand startup, with a focus on embedded systems, motor control, and actuator engineering. This site collects public project notes, debugging records, and technical writing across hardware interfaces, firmware, control algorithms, and engineering toolchains.
   </div>
 
   <div class="home-actions">
@@ -35,7 +35,68 @@ permalink: /
       <span class="i18n-inline" data-i18n-lang="zh">关于我</span>
       <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">About</span>
     </a>
+    <a href="{{ '/now/' | relative_url }}">
+      <span class="i18n-inline" data-i18n-lang="zh">近况</span>
+      <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Now</span>
+    </a>
     <a href="https://github.com/Lee6wang" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<section class="home-section" id="start-here">
+  <div class="home-section-heading">
+    <span class="i18n-inline" data-i18n-lang="zh">从这里开始读</span>
+    <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Start Here</span>
+  </div>
+
+  <div class="home-grid home-grid-featured">
+    <a class="home-card home-link-card" href="{{ '/about/' | relative_url }}">
+      <p class="home-card-label">Profile</p>
+      <h2>
+        <span class="i18n-inline" data-i18n-lang="zh">如果你想了解我</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you want to know me</span>
+      </h2>
+      <p>
+        <span class="i18n-inline" data-i18n-lang="zh">从个人背景、研究方向和正在做的事情开始，快速了解这个站点背后的人。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Start with my background, interests, and current work to understand the person behind this site.</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/now/' | relative_url }}">
+      <p class="home-card-label">Now</p>
+      <h2>
+        <span class="i18n-inline" data-i18n-lang="zh">如果你想知道近况</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you want the current picture</span>
+      </h2>
+      <p>
+        <span class="i18n-inline" data-i18n-lang="zh">这里记录我最近关注的问题、正在整理的内容，以及欢迎交流的方向。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">This page records what I am focused on, what I am writing, and the topics I welcome conversations about.</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/posts/FreeRtos01/' | relative_url }}">
+      <p class="home-card-label">Embedded</p>
+      <h2>
+        <span class="i18n-inline" data-i18n-lang="zh">如果你在学嵌入式</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you are learning embedded systems</span>
+      </h2>
+      <p>
+        <span class="i18n-inline" data-i18n-lang="zh">可以从 FreeRTOS、Bootloader、STM32 和工程工具链笔记进入。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Start from FreeRTOS, Bootloader, STM32, and practical firmware workflow notes.</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/posts/PMSM/' | relative_url }}">
+      <p class="home-card-label">Control</p>
+      <h2>
+        <span class="i18n-inline" data-i18n-lang="zh">如果你关注电机控制</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">If you care about motor control</span>
+      </h2>
+      <p>
+        <span class="i18n-inline" data-i18n-lang="zh">从 PMSM、FOC、SVPWM、编码器测角和控制环整定开始读。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Read through PMSM, FOC, SVPWM, encoder feedback, and control-loop tuning notes.</span>
+      </p>
+    </a>
   </div>
 </section>
 

@@ -4,7 +4,7 @@ title: Categories
 title_zh: 分类
 title_en: Categories
 icon: fas fa-stream
-order: 3
+order: 4
 permalink: /categories/
 ---
 

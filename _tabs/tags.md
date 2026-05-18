@@ -4,7 +4,7 @@ title: Tags
 title_zh: 标签
 title_en: Tags
 icon: fas fa-tags
-order: 4
+order: 5
 permalink: /tags/
 ---
 

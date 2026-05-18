@@ -4,7 +4,7 @@ title: Archives
 title_zh: 归档
 title_en: Archives
 icon: fas fa-archive
-order: 2
+order: 3
 permalink: /archives/
 ---
 

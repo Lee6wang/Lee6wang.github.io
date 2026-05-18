@@ -4,7 +4,7 @@ title: Photograph
 title_zh: 摄影
 title_en: Photograph
 icon: fas fa-camera
-order: 5
+order: 6
 permalink: /photograph/
 ---
 
