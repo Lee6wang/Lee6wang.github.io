@@ -62,6 +62,11 @@
   z-index: 1;
 }
 
+/* Keep Chirpy's PWA update prompt above custom content layers. */
+#notification.toast.show {
+  z-index: 1100;
+}
+
 /* 非首页静态背景图 */
 #static-bg {
   position: fixed;
