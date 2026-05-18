@@ -1,0 +1,99 @@
+- key: freertos
+  label: RTOS
+  title_zh: FreeRTOS 工程化
+  title_en: Engineering FreeRTOS
+  summary_zh: 从任务、时间、内存、同步、中断到工程模板，按真实项目中的风险点组织 FreeRTOS 学习路径。
+  summary_en: A practical FreeRTOS path from tasks, timing, memory, synchronization, and interrupts to maintainable project templates.
+  start_url: /posts/FreeRtos01/
+  tags: [FreeRTOS, RTOS, Firmware]
+  posts:
+    - title_zh: 正确理解 FreeRTOS
+      title_en: Understanding FreeRTOS Correctly
+      url: /posts/FreeRtos01/
+    - title_zh: RTOS 的时间
+      title_en: Time in an RTOS
+      url: /posts/FreeRtos02/
+    - title_zh: 堆、栈与系统稳定性
+      title_en: Heap, Stack, and Stability
+      url: /posts/FreeRtos3/
+    - title_zh: 通信与同步
+      title_en: Communication and Synchronization
+      url: /posts/FreeRtos4/
+    - title_zh: 中断与 RTOS
+      title_en: Interrupts and RTOS
+      url: /posts/FreeRtos5/
+    - title_zh: 裁切、调试与模板
+      title_en: Tailoring, Debugging, and Templates
+      url: /posts/FreeRtos6/
+
+- key: motor-control
+  label: Control
+  title_zh: PMSM / FOC 电机控制
+  title_en: PMSM / FOC Motor Control
+  summary_zh: 围绕 PMSM 建模、SVPWM、编码器测角、电流环、速度环和带宽理解，串起电机控制的理论与实现。
+  summary_en: A motor-control path linking PMSM modeling, SVPWM, encoder feedback, current loops, speed loops, and bandwidth.
+  start_url: /posts/PMSM/
+  tags: [PMSM, FOC, SVPWM]
+  posts:
+    - title_zh: 从传递函数走向状态空间
+      title_en: From Transfer Functions to State Space
+      url: /posts/PMSM/
+    - title_zh: PMSM 数学建模
+      title_en: PMSM Mathematical Modeling
+      url: /posts/Mathematical_Modeling_of_PMSM/
+    - title_zh: SVPWM 技术
+      title_en: SVPWM Techniques
+      url: /posts/SVPWM/
+    - title_zh: 增量式编码器测角
+      title_en: Incremental Encoder Angle Measurement
+      url: /posts/Measure_E_theta/
+    - title_zh: PI 电流环与速度环
+      title_en: PI Current and Speed Loops
+      url: /posts/PMSM_PI/
+    - title_zh: FOC 带宽基础
+      title_en: FOC Bandwidth Basics
+      url: /posts/PMSM_FOC_Bandwidth/
+
+- key: stm32
+  label: STM32
+  title_zh: STM32 底层与启动链路
+  title_en: STM32 Low-Level Startup Path
+  summary_zh: 从上电启动、时钟树、向量表、Bootloader/IAP 到固件升级路径，梳理 MCU 系统启动和维护链路。
+  summary_en: Notes on MCU startup and maintenance, covering boot flow, clock trees, vector tables, Bootloader/IAP, and upgrade paths.
+  start_url: /posts/BootLoader-IAP/
+  tags: [STM32, Bootloader, Clock]
+  posts:
+    - title_zh: 上电到 main 函数
+      title_en: Power-On to main()
+      url: /posts/Start-Pre/
+    - title_zh: STM32 时钟设计哲学
+      title_en: STM32 Clock Design Philosophy
+      url: /posts/clock1/
+    - title_zh: STM32 时钟架构总览
+      title_en: STM32 Clock Architecture Overview
+      url: /posts/clocktotal/
+    - title_zh: Bootloader 与 IAP 升级
+      title_en: Bootloader and IAP Upgrade
+      url: /posts/BootLoader-IAP/
+
+- key: toolchain
+  label: Workflow
+  title_zh: 工程工具链
+  title_en: Engineering Toolchains
+  summary_zh: 整理 VS Code、CMake、嵌入式 C、开发环境和工作区组织，降低项目复现、迁移和协作成本。
+  summary_en: Notes on VS Code, CMake, embedded C, development environments, and workspace organization for reproducible engineering.
+  start_url: /posts/vscode-cmake-workflow/
+  tags: [CMake, Embedded C, Workflow]
+  posts:
+    - title_zh: VS Code + CMake 工作流
+      title_en: VS Code + CMake Workflow
+      url: /posts/vscode-cmake-workflow/
+    - title_zh: 嵌入式 C 关键词
+      title_en: Embedded C Keywords
+      url: /posts/Embedded_C/
+    - title_zh: MacBook 开发环境
+      title_en: MacBook Development Environment
+      url: /posts/How2Use_Mac1/
+    - title_zh: 工作区分区设计
+      title_en: Workspace Partitioning
+      url: /posts/How2Use_Mac2/

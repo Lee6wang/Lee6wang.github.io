@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 机器人灵巧手与嵌入式工程实践
-title_en: Robotics and Embedded Engineering
+title: Haitao Li
+title_en: Haitao Li
 description: Haitao Li 的个人主页，记录机器人灵巧手、嵌入式系统、电机控制和工程工具链实践。
 permalink: /
 ---
@@ -12,7 +12,10 @@ permalink: /
     <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Dexterous Robotic Hands / Embedded Systems / Motor Control</span>
   </p>
 
-  <h1>Haitao Li</h1>
+  <h1>
+    <span class="i18n-inline" data-i18n-lang="zh">嵌入式系统与机器人控制</span>
+    <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Embedded Systems and Robotic Control</span>
+  </h1>
 
   <div class="i18n-block" data-i18n-lang="zh">
     我专注于机器人灵巧手相关的嵌入式控制、执行器驱动和电机控制工程。这个站点整理可公开的项目实践、调试记录和技术笔记，记录从硬件接口到固件、控制算法和工具链的系统化实现。
@@ -99,6 +102,48 @@ permalink: /
         </a>
       </div>
     </article>
+  </div>
+</section>
+
+<section class="home-section" id="series">
+  <div class="home-section-heading">
+    <span class="i18n-inline" data-i18n-lang="zh">专题路径</span>
+    <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Learning Paths</span>
+  </div>
+
+  <div class="home-series-grid">
+    {% for series in site.data.series %}
+      <article class="home-card home-series-card">
+        <p class="home-card-label">{{ series.label }}</p>
+        <h2>
+          <span class="i18n-inline" data-i18n-lang="zh">{{ series.title_zh }}</span>
+          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ series.title_en }}</span>
+        </h2>
+        <p class="home-series-summary">
+          <span class="i18n-inline" data-i18n-lang="zh">{{ series.summary_zh }}</span>
+          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ series.summary_en }}</span>
+        </p>
+        <div class="home-series-tags" aria-label="Series tags">
+          {% for tag in series.tags %}
+            <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <div class="home-series-list">
+          {% for item in series.posts %}
+            <a href="{{ item.url | relative_url }}">
+              <span class="i18n-inline" data-i18n-lang="zh">{{ item.title_zh }}</span>
+              <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">{{ item.title_en }}</span>
+            </a>
+          {% endfor %}
+        </div>
+        <div class="home-card-links">
+          <a href="{{ series.start_url | relative_url }}">
+            <span class="i18n-inline" data-i18n-lang="zh">从这里开始</span>
+            <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Start here</span>
+          </a>
+        </div>
+      </article>
+    {% endfor %}
   </div>
 </section>
 
