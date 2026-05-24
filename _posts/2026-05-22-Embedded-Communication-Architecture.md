@@ -1,6 +1,7 @@
 ---
 title: "复杂嵌入式系统通信架构设计：协议很多，不代表系统很乱"
 title_en: "Communication Architecture Design for Complex Embedded Systems"
+translation_en: "2026-05-22-Embedded-Communication-Architecture.md"
 date: 2026-05-22 16:00:00 +0800
 categories: [Engineering, Embedded Systems]
 tags: [Communication, Architecture, Embedded, CAN, UART, SPI, I2C]
