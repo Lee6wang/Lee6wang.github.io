@@ -10,8 +10,6 @@ permalink: /photograph/
 
 <section class="i18n-block" data-i18n-lang="zh" markdown="1">
 
-# 摄影
-
 我喜欢捕捉日常生活中的瞬间、光线和场景。
 这个页面收集了一些我喜欢的照片。
 
@@ -21,8 +19,6 @@ permalink: /photograph/
 
 <section class="i18n-block" data-i18n-lang="en" markdown="1" hidden aria-hidden="true">
 
-# Photograph
-
 I enjoy capturing moments, light, and scenes from my daily life.  
 This page collects some of my favorite photos.
 
@@ -30,20 +26,14 @@ This page collects some of my favorite photos.
 
 </section>
 
-<div style="margin-top: 20px;">
+<div class="photo-journal">
 
 {% for p in site.data.photograph %}
-  <div style="
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    padding: 10px;
-    margin-bottom: 24px;
-  ">
+  <div class="photo-journal-entry">
     <img src="{{ p.file | relative_url }}" alt="{{ p.title_en | default: p.title | default: 'Photo' }}"
-         style="width: 100%; border-radius: 10px; display: block;">
+         class="photo-journal-image" loading="lazy" decoding="async">
 
-    <div style="margin-top: 10px; font-size: 0.9rem; color: #555;">
+    <div class="photo-journal-caption">
       {% if p.title_zh or p.title_en or p.title %}
       <div>
         <strong>

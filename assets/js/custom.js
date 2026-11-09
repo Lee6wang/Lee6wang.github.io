@@ -34,7 +34,7 @@ function isHomePage() {
 }
 
 function isDarkMode() {
-  const mode = document.documentElement.getAttribute('data-mode');
+  const mode = document.documentElement.getAttribute('data-bs-theme') || document.documentElement.getAttribute('data-mode');
   if (mode) return mode === 'dark';
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }

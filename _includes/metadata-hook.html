@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
 <script>
+  /* Start new visitors in the lab's dark palette; preserve later theme choices. */
+  try {
+    if (typeof Theme !== 'undefined' && Theme.isToggleable && !localStorage.getItem('lab-theme-initialized')) {
+      if (Theme.isSystemTheme) Theme.update(Theme.Mode.DARK);
+      localStorage.setItem('lab-theme-initialized', 'true');
+    }
+  } catch (error) {
+    /* Storage may be unavailable; Chirpy's system theme remains usable. */
+  }
   window.siteBaseUrl = {{ site.baseurl | default: '' | jsonify }};
 </script>
 

@@ -59,9 +59,10 @@ bash tools/test.sh
 - `_data/photograph.yml`：摄影页数据源，每条记录包含 `file`、`taken_at`、`title`、`location`、`note`。
 - `_tabs/*.md`：Chirpy 标签页，使用 `layout`、`title`、`icon`、`order` 控制页面类型和侧边栏顺序。
 - `assets/css/style.scss`：MathJax 显示样式微调。
-- `assets/css/custom.scss`：首页 Vanta 背景和非首页静态背景。
-- `assets/js/custom.js`：Vanta NET 背景初始化和主题切换处理。
-- `_includes/footer/custom.html`：按页面 URL 注入首页动态背景或其他页面静态背景。
+- `assets/css/custom.scss`：极客工作台视觉、深浅主题色、响应式布局和摄影页样式。
+- `assets/js/custom.js`：首页 Canvas 信号网络、控制矢量和 PWM 背景；支持减少动态效果。
+- `_includes/footer/custom.html`：按页面 URL 注入背景容器。
+- `_includes/metadata-hook.html`：双语数据、资源加载和首次访问的默认深色设置；保留后续主题选择。
 - `_plugins/posts-lastmod-hook.rb`：通过 git 历史给文章补 `last_modified_at`。
 
 ## 文章 Front Matter
@@ -101,7 +102,9 @@ math: true
 
 - 自定义 CSS/SCSS 改动应优先放在 `assets/css/custom.scss` 或 `assets/css/style.scss`。
 - 自定义 JS 改动应优先放在 `assets/js/custom.js`。
-- 首页背景由 Vanta NET 实现，其他页面使用 `/assets/images/background.jpg` 作为静态背景。
+- 首页采用终端式介绍、内联 SVG 控制回路线稿和低对比度 Canvas 网格背景；阅读页使用纯色背景。旧 Vanta 库和背景图片保留，但当前设计不加载它们。
+- 深浅主题共用 `--lab-*` CSS 变量。保持 `theme_mode` 为空以保留 Chirpy 的主题切换菜单；首次访问的深色偏好由 metadata hook 初始化。
+- metadata hook 中的内联 JavaScript 必须使用块注释，避免生产 HTML 压缩把单行注释后的代码一并注释掉。
 - `_includes/footer/custom.html` 已经按 `page.url == "/"` 判断首页和非首页背景，不要在多个位置重复注入相同脚本。
 - 修改主题行为前先确认 Chirpy 的默认布局是否已经提供相关能力，避免复制主题内部文件造成维护负担。
 
@@ -124,6 +127,13 @@ math: true
 
 ```bash
 bundle exec jekyll build
+```
+
+当前 macOS 环境已安装 Homebrew Ruby 3.3，项目 gems 安装在被 Git 忽略的 `vendor/bundle`。使用：
+
+```bash
+PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH BUNDLE_PATH=vendor/bundle bundle exec jekyll build
+PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH BUNDLE_PATH=vendor/bundle bash tools/test.sh
 ```
 
 在当前 Windows 环境中等价命令是：
