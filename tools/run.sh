@@ -1,54 +1,18 @@
 #!/usr/bin/env bash
-#
-# Run jekyll serve and then launch the site
-
-prod=false
-command="bundle exec jekyll s -l"
-host="127.0.0.1"
-
-help() {
-  echo "Usage:"
-  echo
-  echo "   bash /path/to/run [options]"
-  echo
-  echo "Options:"
-  echo "     -H, --host [HOST]    Host to bind to."
-  echo "     -p, --production     Run Jekyll in 'production' mode."
-  echo "     -h, --help           Print this help information."
-}
-
+# Re-run after editing content; serve the combined output with no language redirects.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+host=127.0.0.1
+port=4000
+export JEKYLL_ENV=development
 while (($#)); do
-  opt="$1"
-  case $opt in
-  -H | --host)
-    host="$2"
-    shift 2
-    ;;
-  -p | --production)
-    prod=true
-    shift
-    ;;
-  -h | --help)
-    help
-    exit 0
-    ;;
-  *)
-    echo -e "> Unknown option: '$opt'\n"
-    help
-    exit 1
-    ;;
+  case "$1" in
+    -H|--host) host="$2"; shift 2 ;;
+    --port) port="$2"; shift 2 ;;
+    -p|--production) export JEKYLL_ENV=production; shift ;;
+    -h|--help) echo "Usage: bash tools/run.sh [-H HOST] [--port PORT] [-p|--production]"; exit ;;
+    *) echo "Unknown option: $1" >&2; exit 1 ;;
   esac
 done
-
-command="$command -H $host"
-
-if $prod; then
-  command="JEKYLL_ENV=production $command"
-fi
-
-if [ -e /proc/1/cgroup ] && grep -q docker /proc/1/cgroup; then
-  command="$command --force_polling"
-fi
-
-echo -e "\n> $command\n"
-eval "$command"
+bundle exec ruby tools/build.rb
+bundle exec ruby -rwebrick -e 'WEBrick::HTTPServer.new(Port: ARGV[0].to_i, BindAddress: ARGV[1], DocumentRoot: "_site").tap { |server| trap("INT") { server.shutdown }; server.start }' "$port" "$host"

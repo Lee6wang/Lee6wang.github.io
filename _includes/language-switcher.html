@@ -1,0 +1,14 @@
+{% if page.language_versions %}
+<nav class="language-switcher" aria-label="{{ site.data.ui.language.label }}">
+  {% assign locale_codes = 'en,zh' | split: ',' %}
+  {% for code in locale_codes %}
+    {% assign version = page.language_versions[code] %}
+    {% if code == 'en' %}{% assign label = 'EN' %}{% assign name = 'English' %}{% else %}{% assign label = '中文' %}{% assign name = '简体中文' %}{% endif %}
+    {% if version %}
+      <a href="{{ version.url }}" lang="{{ version.lang }}" hreflang="{{ version.lang }}" aria-label="{{ name }}"{% if code == site.locale %} aria-current="page"{% endif %}>{{ label }}</a>
+    {% else %}
+      <span aria-disabled="true" title="{{ site.data.ui.language.unavailable }}">{{ label }}</span>
+    {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}

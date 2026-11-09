@@ -10,7 +10,7 @@
         "isDefault": true
       },
       "problemMatcher": [],
-      "detail": "Runs the Jekyll server with live reload."
+      "detail": "Builds both languages and serves the static preview; rebuild after edits."
     },
     {
       "label": "Build Jekyll Site",

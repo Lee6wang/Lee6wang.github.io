@@ -1,0 +1,81 @@
+---
+- key: freertos
+  label: RTOS
+  start_url: "/posts/FreeRtos01/"
+  tags:
+  - FreeRTOS
+  - RTOS
+  - 固件
+  posts:
+  - url: "/posts/FreeRtos01/"
+    title: 正确理解 FreeRTOS
+  - url: "/posts/FreeRtos02/"
+    title: RTOS 的时间
+  - url: "/posts/FreeRtos3/"
+    title: 堆、栈与系统稳定性
+  - url: "/posts/FreeRtos4/"
+    title: 通信与同步
+  - url: "/posts/FreeRtos5/"
+    title: 中断与 RTOS
+  - url: "/posts/FreeRtos6/"
+    title: 裁切、调试与模板
+  title: FreeRTOS 工程化
+  summary: 从任务、时间、内存、同步、中断到工程模板，按真实项目中的风险点组织 FreeRTOS 学习路径。
+- key: motor-control
+  label: 控制
+  start_url: "/posts/PMSM/"
+  tags:
+  - PMSM
+  - FOC
+  - SVPWM
+  posts:
+  - url: "/posts/PMSM/"
+    title: 从传递函数走向状态空间
+  - url: "/posts/Mathematical_Modeling_of_PMSM/"
+    title: PMSM 数学建模
+  - url: "/posts/SVPWM/"
+    title: SVPWM 技术
+  - url: "/posts/Measure_E_theta/"
+    title: 增量式编码器测角
+  - url: "/posts/PMSM_PI/"
+    title: PI 电流环与速度环
+  - url: "/posts/PMSM_FOC_Bandwidth/"
+    title: FOC 带宽基础
+  title: PMSM / FOC 电机控制
+  summary: 围绕 PMSM 建模、SVPWM、编码器测角、电流环、速度环和带宽理解，串起电机控制的理论与实现。
+- key: stm32
+  label: STM32
+  start_url: "/posts/BootLoader-IAP/"
+  tags:
+  - STM32
+  - Bootloader
+  - 时钟
+  posts:
+  - url: "/posts/Start-Pre/"
+    title: 上电到 main 函数
+  - url: "/posts/clock1/"
+    title: STM32 时钟设计哲学
+  - url: "/posts/clocktotal/"
+    title: STM32 时钟架构总览
+  - url: "/posts/BootLoader-IAP/"
+    title: Bootloader 与 IAP 升级
+  title: STM32 底层与启动链路
+  summary: 从上电启动、时钟树、向量表、Bootloader/IAP 到固件升级路径，梳理 MCU 系统启动和维护链路。
+- key: toolchain
+  label: 工作流
+  start_url: "/posts/vscode-cmake-workflow/"
+  tags:
+  - CMake
+  - 嵌入式 C
+  - 工作流
+  posts:
+  - url: "/posts/vscode-cmake-workflow/"
+    title: VS Code + CMake 工作流
+  - url: "/posts/Embedded_C/"
+    title: 嵌入式 C 关键词
+  - url: "/posts/How2Use_Mac1/"
+    title: MacBook 开发环境
+  - url: "/posts/How2Use_Mac2/"
+    title: 工作区分区设计
+  title: 工程工具链
+  summary: 整理 VS Code、CMake、嵌入式 C、开发环境和工作区组织，降低项目复现、迁移和协作成本。

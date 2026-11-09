@@ -16,17 +16,11 @@ script_includes:
 <article class="px-1" data-toc="{{ enable_toc }}">
   <header>
     <h1 data-toc-skip>
-      <span class="i18n-inline" data-i18n-lang="zh">{{ page.title }}</span>
-      <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">
-        {{- page.title_en | default: page.title -}}
-      </span>
+      {{ page.title }}
     </h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">
-        <span class="i18n-inline" data-i18n-lang="zh">{{ page.description }}</span>
-        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">
-          {{- page.description_en | default: page.description -}}
-        </span>
+        {{ page.description }}
       </p>
     {% endif %}
 
@@ -110,10 +104,7 @@ script_includes:
   {% if enable_toc %}
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
       <span class="label text-truncate">
-        <span class="i18n-inline" data-i18n-lang="zh">{{ page.title }}</span>
-        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">
-          {{- page.title_en | default: page.title -}}
-        </span>
+        {{ page.title }}
       </span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
@@ -128,10 +119,7 @@ script_includes:
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
         <div class="label text-truncate py-2 ms-4">
-          <span class="i18n-inline" data-i18n-lang="zh">{{ page.title }}</span>
-          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">
-            {{- page.title_en | default: page.title -}}
-          </span>
+          {{ page.title }}
         </div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
@@ -142,19 +130,7 @@ script_includes:
   {% endif %}
 
   <div class="content">
-    <section class="i18n-block i18n-post-body" data-i18n-lang="zh">
-      {{ content }}
-    </section>
-
-    <section class="i18n-block i18n-post-body" data-i18n-lang="en" hidden aria-hidden="true">
-      {% if page.translation_en %}
-        {% capture translation_path %}i18n-posts/en/{{ page.translation_en }}{% endcapture %}
-        {% capture translation_en %}{% include {{ translation_path }} %}{% endcapture %}
-        {{ translation_en | strip | markdownify }}
-      {% else %}
-        <p>This article is currently available in Chinese. An English body translation has not been added yet.</p>
-      {% endif %}
-    </section>
+    {{ content }}
   </div>
 
   <div class="post-tail-wrapper text-muted">

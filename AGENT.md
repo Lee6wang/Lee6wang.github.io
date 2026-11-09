@@ -8,14 +8,16 @@
 
 - 站点主题：`jekyll-theme-chirpy`，版本约束在 `Gemfile` 中。
 - 站点配置：`_config.yml`。
-- 文章目录：`_posts/`。
-- 页面标签页：`_tabs/`。
+- 双语内容：`_content/en/`（英文根路径）与 `_content/zh/`（中文 `/zh/`）。
+- 文章目录：各语言目录下的 `_posts/`，用相同 `translation_key` 配对。
+- 页面标签页：各语言目录下的 `_tabs/`。
+- 构建入口：`tools/build.rb`，分别读取、生成和渲染两个 Jekyll 站点，再合并到 `_site/`。
 - 数据文件：`_data/`。
 - 静态资源：`assets/`。
 - 自定义 Liquid/Ruby 扩展：`_includes/`、`_plugins/`。
 - 部署流程：`.github/workflows/pages-deploy.yml`。
 
-主要内容是中文技术博客，主题集中在嵌入式系统、STM32、FreeRTOS、电机控制、PMSM、工程工作流和个人记录。站点的公开身份信息目前是 Haitao Li，标题和社交信息配置在 `_config.yml`。
+主要内容是中英文技术博客，主题集中在嵌入式系统、STM32、FreeRTOS、电机控制、PMSM、工程工作流和个人记录。站点的公开身份信息目前是 Haitao Li，标题和社交信息配置在 `_config.yml`。
 
 ## 常用命令
 
@@ -23,17 +25,19 @@
 
 ```bash
 bundle install
-bundle exec jekyll serve --livereload
-bundle exec jekyll build
+bash tools/run.sh
+bundle exec ruby tools/build.rb
 ```
 
-当前 Windows 本地环境已安装 Ruby 3.3 with MSYS2 DevKit 到 `C:\Ruby33-x64`。如果当前 shell 没有把 Ruby 加入 `PATH`，使用完整路径执行：
+macOS 的 Ruby 3.3 与项目 gems 环境：
 
-```powershell
-C:\Ruby33-x64\bin\bundle.bat install
-C:\Ruby33-x64\bin\bundle.bat exec C:\Ruby33-x64\bin\jekyll.bat build
-C:\Ruby33-x64\bin\bundle.bat exec C:\Ruby33-x64\bin\jekyll.bat serve --livereload --host 127.0.0.1 --port 4000
+```bash
+export PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH
+export BUNDLE_PATH=vendor/bundle
+bash tools/run.sh --port 4000
 ```
+
+预览脚本先构建再启动静态服务器；修改后重新运行构建并刷新浏览器。不要直接使用 `jekyll serve/build`，它们不会执行双语构建流程。
 
 本地预览地址：
 
@@ -49,20 +53,23 @@ bash tools/run.sh --production
 bash tools/test.sh
 ```
 
-`tools/test.sh` 会执行生产构建并运行 `htmlproofer`，其中外链检查被禁用。GitHub Actions 使用 Ruby 3.3，并在 `main` 或 `master` 分支 push 时构建和部署。
+`tools/test.sh` 会执行两种语言的生产构建、`tools/verify-locales.rb` 语种与路由校验并运行 `htmlproofer`，其中外链检查被禁用。GitHub Actions 使用 Ruby 3.3，并在 `main` 或 `master` 分支 push 时构建和部署。
 
 ## 目录约定
 
-- `_posts/YYYY-MM-DD-slug.md`：博客文章。文件名日期用于排序和 URL 语义，front matter 中的 `date` 是展示和归档依据。
+- `_content/{en,zh}/_posts/YYYY-MM-DD-slug.md`：博客文章。文件名日期用于排序和 URL 语义，front matter 中的 `date` 是展示和归档依据。
 - `assets/figure/YYYY-MM-DD/`：文章配图目录，通常和文章日期对应，图片文件多为 `1.png`、`2.png` 这种顺序命名。
 - `assets/photograph/`：摄影页图片。
-- `_data/photograph.yml`：摄影页数据源，每条记录包含 `file`、`taken_at`、`title`、`location`、`note`。
-- `_tabs/*.md`：Chirpy 标签页，使用 `layout`、`title`、`icon`、`order` 控制页面类型和侧边栏顺序。
+- `_data/i18n/{en,zh}/photograph.yml`：摄影页数据源，每条记录包含 `file`、`taken_at`、`title`、`location`、`note`。
+- `_content/{en,zh}/_tabs/*.md`：Chirpy 标签页，使用 `layout`、`title`、`icon`、`order` 控制页面类型和侧边栏顺序。
 - `assets/css/style.scss`：MathJax 显示样式微调。
 - `assets/css/custom.scss`：极客工作台视觉、深浅主题色、响应式布局和摄影页样式。
 - `assets/js/custom.js`：首页 Canvas 信号网络、控制矢量和 PWM 背景；支持减少动态效果。
-- `_includes/footer/custom.html`：按页面 URL 注入背景容器。
-- `_includes/metadata-hook.html`：双语数据、资源加载和首次访问的默认深色设置；保留后续主题选择。
+- `_layouts/default.html`：基于 Chirpy 7.6 默认布局，在 body 开头调用 footer/custom；升级主题时核对差异。
+- `_includes/footer/custom.html`：按页面 URL 注入背景容器及真实语言链接。
+- `_includes/language-switcher.html`：使用构建生成的对应关系切换页面；缺失译文显示禁用项。不要放进 `include_cached` 页脚。
+- `_includes/lab-home.html`、`photo-journal.html`：共用视觉模板；文案来自 `_data/i18n/{en,zh}/ui.yml`。
+- `_includes/metadata-hook.html`：hreflang、资源加载和首次访问的默认深色设置；保留后续主题选择。
 - `_plugins/posts-lastmod-hook.rb`：通过 git 历史给文章补 `last_modified_at`。
 
 ## 文章 Front Matter
@@ -72,6 +79,7 @@ bash tools/test.sh
 ```yaml
 ---
 title: "文章标题"
+translation_key: "post:stable-key"
 date: 2026-03-04 19:00:00 +0800
 categories: [Motor Control, Engineering]
 tags: [PMSM]
@@ -81,6 +89,8 @@ math: true
 
 要求和注意点：
 
+- 同一文章的两种语言使用相同 `translation_key`；每份正文及标题独立维护。保留原文件名大小写，避免改变 URL。
+- 缺失译文时不生成该语种文档，也不回退到另一语言首页。
 - 技术公式文章需要显式加 `math: true`。
 - 分类和标签由 Chirpy 自动生成归档页，不要随意批量重命名已有分类或标签。
 - 现有分类包含 `Engineering`、`STM32`、`RTOS`、`Motor Control`、`Mac`、`Reflection` 等。
@@ -92,8 +102,9 @@ math: true
 
 - 文章图片优先使用以站点根开头的路径，例如 `/assets/figure/2026-01-28/1.png`。
 - 也有旧文章使用 `../assets/...`，可在触碰对应文章时顺手统一为根路径，但不要无关批量改动。
+- 首页和摄影模板的图片 src 使用原始 `/assets/...`，Chirpy 的内容处理会添加 baseurl，不要再次使用 `relative_url`。普通页面链接仍使用 `relative_url`。
 - 新增文章配图时，优先新建 `assets/figure/YYYY-MM-DD/`，并按文章引用顺序命名。
-- 摄影页新增图片时，同时更新 `assets/photograph/` 和 `_data/photograph.yml`。
+- 摄影页新增图片时，同时更新 `assets/photograph/` 和 `_data/i18n/{en,zh}/photograph.yml`。
 - 不要随意替换 `assets/lib/three.r134.min.js` 或 `assets/lib/vanta.net.min.js`；它们服务于首页背景。
 
 ## 样式与交互
@@ -106,6 +117,8 @@ math: true
 - 深浅主题共用 `--lab-*` CSS 变量。保持 `theme_mode` 为空以保留 Chirpy 的主题切换菜单；首次访问的深色偏好由 metadata hook 初始化。
 - metadata hook 中的内联 JavaScript 必须使用块注释，避免生产 HTML 压缩把单行注释后的代码一并注释掉。
 - `_includes/footer/custom.html` 已经按 `page.url == "/"` 判断首页和非首页背景，不要在多个位置重复注入相同脚本。
+- `assets/js/service-worker.js` 在构建时放入主题的 worker 路径，按语言隔离缓存；根 worker 只在迁移时清理旧 `chirpy-*` 缓存。
+- URL 是语言的唯一依据；不依据浏览器语言或 localStorage 自动重定向。
 - 修改主题行为前先确认 Chirpy 的默认布局是否已经提供相关能力，避免复制主题内部文件造成维护负担。
 
 ## 格式规范
@@ -126,20 +139,14 @@ math: true
 内容或样式改动后，至少执行：
 
 ```bash
-bundle exec jekyll build
+bundle exec ruby tools/build.rb
 ```
 
 当前 macOS 环境已安装 Homebrew Ruby 3.3，项目 gems 安装在被 Git 忽略的 `vendor/bundle`。使用：
 
 ```bash
-PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH BUNDLE_PATH=vendor/bundle bundle exec jekyll build
+PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH BUNDLE_PATH=vendor/bundle bundle exec ruby tools/build.rb
 PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH BUNDLE_PATH=vendor/bundle bash tools/test.sh
-```
-
-在当前 Windows 环境中等价命令是：
-
-```powershell
-C:\Ruby33-x64\bin\bundle.bat exec C:\Ruby33-x64\bin\jekyll.bat build
 ```
 
 发布前或链接相关改动后，执行：

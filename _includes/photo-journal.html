@@ -1,0 +1,41 @@
+<section markdown="1">
+{{ site.data.ui.photograph.i_enjoy_capturing_moments_light_and_scenes }}
+</section>
+
+<div class="photo-journal">
+
+{% for p in site.data.photograph %}
+  <div class="photo-journal-entry">
+    <img src="{{ p.file }}" alt="{{ p.title | default: 'Photo' }}"
+         class="photo-journal-image" loading="lazy" decoding="async">
+
+    <div class="photo-journal-caption">
+      {% if p.title %}
+      <div>
+        <strong>
+          <span>{{ p.title }}</span>
+        </strong>
+      </div>
+      {% endif %}
+
+      {% if p.taken_at or p.location %}
+      <div>
+        {% if p.taken_at %}📅 {{ p.taken_at }}{% endif %}
+        {% if p.taken_at and p.location %} · {% endif %}
+        {% if p.location %}
+        📍
+        <span>{{ p.location }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if p.note %}
+      <div style="margin-top: 4px;">
+        <span>{{ p.note }}</span>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+</div>

@@ -1,0 +1,85 @@
+---
+- key: freertos
+  label: RTOS
+  start_url: "/posts/FreeRtos01/"
+  tags:
+  - FreeRTOS
+  - RTOS
+  - Firmware
+  posts:
+  - url: "/posts/FreeRtos01/"
+    title: Understanding FreeRTOS Correctly
+  - url: "/posts/FreeRtos02/"
+    title: Time in an RTOS
+  - url: "/posts/FreeRtos3/"
+    title: Heap, Stack, and Stability
+  - url: "/posts/FreeRtos4/"
+    title: Communication and Synchronization
+  - url: "/posts/FreeRtos5/"
+    title: Interrupts and RTOS
+  - url: "/posts/FreeRtos6/"
+    title: Tailoring, Debugging, and Templates
+  title: Engineering FreeRTOS
+  summary: A practical FreeRTOS path from tasks, timing, memory, synchronization,
+    and interrupts to maintainable project templates.
+- key: motor-control
+  label: Control
+  start_url: "/posts/PMSM/"
+  tags:
+  - PMSM
+  - FOC
+  - SVPWM
+  posts:
+  - url: "/posts/PMSM/"
+    title: From Transfer Functions to State Space
+  - url: "/posts/Mathematical_Modeling_of_PMSM/"
+    title: PMSM Mathematical Modeling
+  - url: "/posts/SVPWM/"
+    title: SVPWM Techniques
+  - url: "/posts/Measure_E_theta/"
+    title: Incremental Encoder Angle Measurement
+  - url: "/posts/PMSM_PI/"
+    title: PI Current and Speed Loops
+  - url: "/posts/PMSM_FOC_Bandwidth/"
+    title: FOC Bandwidth Basics
+  title: PMSM / FOC Motor Control
+  summary: A motor-control path linking PMSM modeling, SVPWM, encoder feedback, current
+    loops, speed loops, and bandwidth.
+- key: stm32
+  label: STM32
+  start_url: "/posts/BootLoader-IAP/"
+  tags:
+  - STM32
+  - Bootloader
+  - Clock
+  posts:
+  - url: "/posts/Start-Pre/"
+    title: Power-On to main()
+  - url: "/posts/clock1/"
+    title: STM32 Clock Design Philosophy
+  - url: "/posts/clocktotal/"
+    title: STM32 Clock Architecture Overview
+  - url: "/posts/BootLoader-IAP/"
+    title: Bootloader and IAP Upgrade
+  title: STM32 Low-Level Startup Path
+  summary: Notes on MCU startup and maintenance, covering boot flow, clock trees,
+    vector tables, Bootloader/IAP, and upgrade paths.
+- key: toolchain
+  label: Workflow
+  start_url: "/posts/vscode-cmake-workflow/"
+  tags:
+  - CMake
+  - Embedded C
+  - Workflow
+  posts:
+  - url: "/posts/vscode-cmake-workflow/"
+    title: VS Code + CMake Workflow
+  - url: "/posts/Embedded_C/"
+    title: Embedded C Keywords
+  - url: "/posts/How2Use_Mac1/"
+    title: MacBook Development Environment
+  - url: "/posts/How2Use_Mac2/"
+    title: Workspace Partitioning
+  title: Engineering Toolchains
+  summary: Notes on VS Code, CMake, embedded C, development environments, and workspace
+    organization for reproducible engineering.

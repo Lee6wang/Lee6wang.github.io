@@ -1,37 +1,37 @@
-# Chirpy Starter
+# Haitao Li — Personal Lab
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+A bilingual Jekyll/Chirpy site. English lives at `/`; Chinese lives at `/zh/`. Existing article paths remain valid and now serve English, with the Chinese version at the same path under `/zh/`.
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+## Develop and verify
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
-
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
-
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+```bash
+bundle install
+bash tools/run.sh --port 4000
+bash tools/test.sh
 ```
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+The preview server serves both languages from `_site/`. After editing, rebuild with `bundle exec ruby tools/build.rb`, then refresh. The PWA may show an update notification; apply it to replace a cached version.
 
-## Usage
+On this Mac, first set `PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH` and `BUNDLE_PATH=vendor/bundle`.
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+Do not use plain `jekyll build` or `jekyll serve`: the bilingual build stages two isolated Jekyll sites, resolves corresponding documents, and combines their output. GitHub Actions uses the same build and checks. Building locally does not publish anything.
 
-## Contributing
+## Content and translations
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+- `_content/en/` and `_content/zh/`: independent `index.md`, `_tabs/`, and `_posts/`.
+- Each translated pair uses the same stable `translation_key`; filenames retain the existing article slugs and capitalization.
+- `_data/i18n/en/` and `_data/i18n/zh/`: UI copy, learning paths, and photography captions.
+- `_includes/lab-home.html`, `_includes/photo-journal.html`, layouts, CSS, images, and background animation are shared.
+
+Each build receives only its own articles and data. Archives, recommendations, counts, metadata, reading time, and search are generated from that language. The language switch uses ordinary links, works without JavaScript, and stays on the corresponding document. Missing translations are disabled, never silently redirected. Browser language and previous localStorage language preferences do not override the URL.
+
+The root sitemap contains both languages. Each page has its own canonical URL and reciprocal `hreflang` links; English is `x-default` where available. Service workers use separate language cache prefixes and scopes, with root scope excluding `/zh/`.
+
+`tools/test.sh` builds production output, checks language/URL correspondence and search isolation, and runs HTML-Proofer for internal links and images. `_site/` and staging files are not committed.
+
+## Theme overrides
+
+`_layouts/default.html` follows Chirpy 7.6 with one body-start hook for the background and language switch. Keep the switch outside the cached footer. `assets/js/service-worker.js` is staged at the theme's worker source path to preserve theme registration while isolating caches. Review these overrides when upgrading Chirpy.
 
 ## License
 

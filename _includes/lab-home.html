@@ -1,0 +1,326 @@
+<div class="lab-masthead" aria-label="Personal lab">
+  <span class="lab-path"><span class="lab-prompt">~</span> / haitao / personal-lab</span>
+  <a class="lab-status" href="{{ '/now/' | relative_url }}">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span>{{ site.data.ui.home.exploring_whats_next }}</span>
+  </a>
+</div>
+
+<section class="home-hero">
+  <div class="hero-copy">
+    <p class="home-kicker">
+      <span>{{ site.data.ui.home.dexterous_robotic_hands_embedded_systems_motor_control }}</span>
+    </p>
+
+    <p class="hero-command" aria-hidden="true"><span>$</span> whoami</p>
+    <h1>Haitao Li<span class="hero-cursor" aria-hidden="true">_</span></h1>
+
+    <div class="hero-description">
+{{ site.data.ui.home.i_am_haitao_li_interested_in_embedded }}
+</div>
+
+    <div class="home-actions">
+      <a href="#projects">
+        <span>{{ site.data.ui.home.projects }}</span>
+      </a>
+      <a href="#featured-posts">
+        <span>{{ site.data.ui.home.technical_writing }}</span>
+      </a>
+      <a href="{{ '/about/' | relative_url }}">
+        <span>{{ site.data.ui.home.about }}</span>
+      </a>
+      <a href="{{ '/now/' | relative_url }}">
+        <span>{{ site.data.ui.home.now }}</span>
+      </a>
+      <a href="https://github.com/Lee6wang" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <figure class="hero-instrument" aria-label="Control loop illustration">
+    <div class="instrument-bar" aria-hidden="true"><span>CONTROL_LOOP.svg</span><span>FIG. 01</span></div>
+    <svg class="control-diagram" viewBox="0 0 360 300" role="img" aria-labelledby="control-diagram-title">
+      <title id="control-diagram-title">Control loop: input, controller, actuator and feedback</title>
+      <defs>
+        <pattern id="circuit-grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.8" fill="currentColor" opacity="0.18"/></pattern>
+        <marker id="signal-arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="currentColor" stroke-width="1.2"/></marker>
+      </defs>
+      <rect width="360" height="300" fill="url(#circuit-grid)"/>
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M26 122H76M204 122H256" marker-end="url(#signal-arrow)"/>
+        <rect x="82" y="80" width="120" height="84" rx="2"/>
+        <rect x="90" y="88" width="104" height="68" rx="1" opacity="0.3"/>
+        <path d="M102 70V80M122 70V80M142 70V80M162 70V80M182 70V80M102 164V174M122 164V174M142 164V174M162 164V174M182 164V174M72 96H82M72 112H82M72 132H82M72 148H82M202 96H212M202 148H212" opacity="0.5"/>
+        <circle cx="290" cy="122" r="31"/>
+        <circle cx="290" cy="122" r="23" opacity="0.3"/>
+        <path d="M290 122L307 105M290 153V224H142V177" marker-end="url(#signal-arrow)"/>
+        <circle cx="290" cy="122" r="3" fill="currentColor"/>
+        <path d="M26 205H42V190H58V205H74V190H90" opacity="0.5"/>
+        <path d="M24 260H336" opacity="0.2"/>
+        <circle cx="26" cy="122" r="3" fill="currentColor"/>
+      </g>
+      <g class="diagram-label" text-anchor="middle" fill="currentColor">
+        <text x="142" y="116" class="diagram-chip">CONTROL</text>
+        <text x="142" y="136">STM32 / RTOS</text>
+        <text x="42" y="105">IN</text>
+        <text x="290" y="77">ACTUATOR</text>
+        <text x="218" y="215">FEEDBACK</text>
+        <text x="180" y="284">SENSE → THINK → ACT</text>
+      </g>
+    </svg>
+    <figcaption>
+      <span>{{ site.data.ui.home.understand_the_system_bring_ideas_to_life }}</span>
+    </figcaption>
+  </figure>
+</section>
+
+<div class="lab-index">
+  <a href="{{ '/archives/' | relative_url }}"><strong>{{ site.posts | size }}</strong><span>{{ site.data.ui.home.notes_amp_reflections }}</span><span aria-hidden="true">↗</span></a>
+  <a href="#series"><strong>{{ site.data.series | size }}</strong><span>{{ site.data.ui.home.learning_paths }}</span><span aria-hidden="true">↗</span></a>
+  <a href="{{ '/photograph/' | relative_url }}"><strong aria-hidden="true">◎</strong><span>{{ site.data.ui.home.life_through_a_lens }}</span><span aria-hidden="true">↗</span></a>
+</div>
+
+<section class="home-section" id="start-here">
+  <h2 class="home-section-heading">
+    <span>{{ site.data.ui.home.start_here }}</span>
+  </h2>
+
+  <div class="home-grid home-grid-featured">
+    <a class="home-card home-link-card" href="{{ '/about/' | relative_url }}">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.profile }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.if_you_want_to_know_me }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.start_with_my_background_interests_and_current }}</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/now/' | relative_url }}">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.now }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.if_you_want_the_current_picture }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.this_page_records_what_i_am_focused }}</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/posts/FreeRtos01/' | relative_url }}">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.embedded }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.if_you_are_learning_embedded_systems }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.start_from_freertos_bootloader_stm32_and_practical }}</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/posts/PMSM/' | relative_url }}">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.control }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.if_you_care_about_motor_control }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.read_through_pmsm_foc_svpwm_encoder_feedback }}</span>
+      </p>
+    </a>
+  </div>
+</section>
+
+<section class="home-section" id="projects">
+  <h2 class="home-section-heading">
+    <span>{{ site.data.ui.home.projects_and_work }}</span>
+  </h2>
+
+  <div class="home-grid home-grid-projects">
+    <article class="home-card home-project-card">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.robotic_hand }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.exploring_dexterous_robotic_hands }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.an_interest_in_dexterous_robotic_hands_from }}</span>
+      </p>
+      <div class="home-card-links">
+        <a href="{{ '/about/' | relative_url }}">
+          <span>{{ site.data.ui.home.about_this_interest }}</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="home-card home-project-card">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.motor_control }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.pmsm_foc_control_notes }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.notes_connecting_control_theory_with_debuggable_implementation }}</span>
+      </p>
+      <div class="home-card-links">
+        <a href="{{ '/posts/PMSM/' | relative_url }}">
+          <span>{{ site.data.ui.home.read_notes }}</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="home-card home-project-card">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.firmware_workflow }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.stm32_rtos_engineering }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.practical_notes_on_bootloaderiap_freertos_cmake_vs }}</span>
+      </p>
+      <div class="home-card-links">
+        <a href="{{ '/posts/BootLoader-IAP/' | relative_url }}">
+          <span>{{ site.data.ui.home.view_practice }}</span>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="home-section" id="series">
+  <h2 class="home-section-heading">
+    <span>{{ site.data.ui.home.learning_paths_36 }}</span>
+  </h2>
+
+  <div class="home-series-grid">
+    {% for series in site.data.series %}
+      <article class="home-card home-series-card">
+        <p class="home-card-label">
+          <span>{{ series.label | default: series.label }}</span>
+        </p>
+        <h3>
+          <span>{{ series.title }}</span>
+        </h3>
+        <p class="home-series-summary">
+          <span>{{ series.summary }}</span>
+        </p>
+        <div class="home-series-tags" aria-label="Series tags">
+          {% for tag in series.tags %}<span>{{ tag }}</span>{% endfor %}
+        </div>
+        <div class="home-series-list">
+          {% for item in series.posts %}
+            <a href="{{ item.url | relative_url }}">
+              <span>{{ item.title }}</span>
+            </a>
+          {% endfor %}
+        </div>
+        <div class="home-card-links">
+          <a href="{{ series.start_url | relative_url }}">
+            <span>{{ site.data.ui.home.start_here_37 }}</span>
+          </a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-section" id="featured-posts">
+  <h2 class="home-section-heading">
+    <span>{{ site.data.ui.home.featured_posts }}</span>
+  </h2>
+
+  <div class="home-grid home-grid-featured">
+    <a class="home-card home-link-card" href="{{ '/posts/BootLoader-IAP/' | relative_url }}">
+      <p class="home-card-label">STM32</p>
+      <h3>
+        <span>{{ site.data.ui.home.bootloader_and_iap_upgrade }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.a_complete_mcu_firmware_upgrade_path_from }}</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/posts/PMSM/' | relative_url }}">
+      <p class="home-card-label">PMSM</p>
+      <h3>
+        <span>{{ site.data.ui.home.from_transfer_functions_to_state_space }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.a_pmsmcentered_note_on_how_control_theory }}</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/posts/FreeRtos01/' | relative_url }}">
+      <p class="home-card-label">RTOS</p>
+      <h3>
+        <span>{{ site.data.ui.home.understanding_freertos_correctly }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.understanding_rtos_from_tasks_scheduling_resources_and }}</span>
+      </p>
+    </a>
+
+    <a class="home-card home-link-card" href="{{ '/posts/vscode-cmake-workflow/' | relative_url }}">
+      <p class="home-card-label">
+        <span>{{ site.data.ui.home.toolchain }}</span>
+      </p>
+      <h3>
+        <span>{{ site.data.ui.home.vs_code_cmake_workflow }}</span>
+      </h3>
+      <p>
+        <span>{{ site.data.ui.home.a_portable_embedded_workflow_that_reduces_dependence }}</span>
+      </p>
+    </a>
+  </div>
+</section>
+
+<section class="home-section">
+  <h2 class="home-section-heading">
+    <span>{{ site.data.ui.home.recent_posts }}</span>
+  </h2>
+
+  <div class="home-list">
+    {% for post in site.posts limit:5 %}
+      <a class="home-list-item" href="{{ post.url | relative_url }}">
+        <span class="home-list-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+        <span class="home-list-title">
+          <span>{{ post.title }}</span>
+        </span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-section">
+  <h2 class="home-section-heading">
+    <span>{{ site.data.ui.home.photography_preview }}</span>
+  </h2>
+
+  <div class="home-photo-grid">
+    {% for p in site.data.photograph limit:3 %}
+      <article class="home-photo">
+        <img
+          class="home-photo-image"
+          src="{{ p.file }}"
+          alt="{{ p.title | escape }}"
+          decoding="async"
+          loading="lazy"
+        >
+        <a class="home-photo-caption" href="{{ '/photograph/' | relative_url }}">
+          <span>{{ p.title }}</span>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<p class="home-slogan">
+  <span>{{ site.data.ui.home.make_it_work_make_it_better }}</span>
+</p>

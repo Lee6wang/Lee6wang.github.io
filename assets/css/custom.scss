@@ -129,7 +129,7 @@ main article:has(.home-hero) .dynamic-title { display: none; }
 .hero-command > span { color: var(--lab-accent); margin-right: 0.5rem; }
 .home-hero h1 { font: 700 clamp(2.9rem, 5.2vw, 4.8rem)/1.1 var(--lab-mono); letter-spacing: -0.075em; margin: 0 0 1.5rem; color: var(--lab-ink); }
 .hero-cursor { color: var(--lab-accent); }
-.home-hero .i18n-block { max-width: 38rem; font-size: 0.96rem; line-height: 1.95; color: var(--lab-muted); }
+.home-hero .hero-description { max-width: 38rem; font-size: 0.96rem; line-height: 1.95; color: var(--lab-muted); }
 .home-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
 .content .home-actions a { display: inline-flex; justify-content: center; align-items: center; min-height: 42px; padding: 0.55rem 0.8rem; border: 1px solid var(--lab-border); border-radius: 3px; color: var(--lab-ink); background: var(--lab-surface); font-size: 0.78rem; font-weight: 600; text-decoration: none; transition: border-color 160ms; }
 .content .home-actions a:first-child { color: var(--lab-bg); background: var(--lab-accent); border-color: var(--lab-accent); }
@@ -290,27 +290,20 @@ div[class^='language-'] { border: 1px solid var(--lab-border); border-radius: 4p
 }
 
 
-.i18n-block,
-.i18n-inline {
-  display: none;
-}
-
-html:not([data-site-lang]) .i18n-block[data-i18n-lang="zh"],
-html[data-site-lang="zh"] .i18n-block[data-i18n-lang="zh"],
-html[data-site-lang="en"] .i18n-block[data-i18n-lang="en"] {
+/* Keep long matrices scrollable inside the article on narrow screens. */
+.content mjx-container[jax='CHTML'][display='true'] {
   display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.3rem;
 }
 
-html:not([data-site-lang]) .i18n-inline[data-i18n-lang="zh"],
-html[data-site-lang="zh"] .i18n-inline[data-i18n-lang="zh"],
-html[data-site-lang="en"] .i18n-inline[data-i18n-lang="en"] {
-  display: inline;
-}
-
-
-.i18n-switcher { position: fixed; right: 1rem; bottom: 1rem; z-index: 1050; display: inline-flex; gap: 0.2rem; padding: 0.25rem; border: 1px solid var(--lab-border); border-radius: 4px; background: var(--lab-surface); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); }
-.i18n-switcher button { min-width: 2.5rem; min-height: 2.5rem; padding: 0.4rem; border: 0; border-radius: 2px; background: transparent; color: var(--lab-muted); font: 0.75rem var(--lab-mono); cursor: pointer; }
-.i18n-switcher button.is-active { color: var(--lab-bg); background: var(--lab-accent); }
+/* Language is encoded in the URL; these links also work without JavaScript. */
+.language-switcher { position: fixed; right: 1rem; bottom: 1rem; z-index: 1050; display: inline-flex; gap: 0.2rem; padding: 0.25rem; border: 1px solid var(--lab-border); border-radius: 4px; background: var(--lab-surface); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); }
+.language-switcher a, .language-switcher span { display: inline-flex; align-items: center; justify-content: center; min-width: 2.5rem; min-height: 2.5rem; padding: 0.4rem; border: 0; border-radius: 2px; color: var(--lab-muted); font: 0.75rem var(--lab-mono); text-decoration: none; }
+.language-switcher a[aria-current='page'] { color: var(--lab-bg); background: var(--lab-accent); }
+.language-switcher span[aria-disabled] { opacity: 0.45; cursor: not-allowed; }
 
 @media (max-width: 1199px) {
   .home-hero { gap: 1.5rem; grid-template-columns: minmax(0, 1.3fr) minmax(210px, 0.85fr); }
@@ -322,7 +315,7 @@ html[data-site-lang="en"] .i18n-inline[data-i18n-lang="en"] {
   .home-hero { grid-template-columns: 1fr; padding-block: 2rem; gap: 1.75rem; }
   .home-hero h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
   .home-kicker { font-size: 0.65rem; margin-bottom: 1.3rem; }
-  .home-hero .i18n-block { font-size: 0.9rem; }
+  .home-hero .hero-description { font-size: 0.9rem; }
   .hero-instrument { max-width: 360px; width: 100%; justify-self: center; transform: none; }
   .control-diagram { height: 220px; }
   .lab-index { grid-template-columns: 1fr; }
@@ -346,6 +339,6 @@ html[data-site-lang="en"] .i18n-inline[data-i18n-lang="en"] {
   .home-photo-image, .home-link-card, .home-actions a { transition: none; }
 }
 @media print {
-  #home-bg, #static-bg, .i18n-switcher, .hero-instrument { display: none !important; }
+  #home-bg, #static-bg, .language-switcher, .hero-instrument { display: none !important; }
   .home-hero { display: block; }
 }

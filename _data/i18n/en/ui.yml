@@ -1,0 +1,82 @@
+---
+home:
+  exploring_whats_next: Exploring what's next
+  dexterous_robotic_hands_embedded_systems_motor_control: Dexterous Robotic Hands
+    / Embedded Systems / Motor Control
+  i_am_haitao_li_interested_in_embedded: I am Haitao Li, interested in embedded systems,
+    motor control, and dexterous robotic hands. I am currently taking time to reflect
+    on my interests and goals, and to explore what comes next in learning, work, and
+    life. This site brings together my technical notes, hands-on experiments, and
+    observations and reflections along the way.
+  projects: Projects
+  technical_writing: Technical Writing
+  about: About
+  now: Now
+  understand_the_system_bring_ideas_to_life: Understand the system. Bring ideas to
+    life.
+  notes_amp_reflections: Notes &amp; reflections
+  learning_paths: Learning paths
+  life_through_a_lens: Life through a lens
+  start_here: Start Here
+  profile: Profile
+  if_you_want_to_know_me: If you want to know me
+  start_with_my_background_interests_and_current: Start with my background, interests,
+    and current work to understand the person behind this site.
+  if_you_want_the_current_picture: If you want the current picture
+  this_page_records_what_i_am_focused: This page records what I am focused on, what
+    I am writing, and the topics I welcome conversations about.
+  embedded: Embedded
+  if_you_are_learning_embedded_systems: If you are learning embedded systems
+  start_from_freertos_bootloader_stm32_and_practical: Start from FreeRTOS, Bootloader,
+    STM32, and practical firmware workflow notes.
+  control: Control
+  if_you_care_about_motor_control: If you care about motor control
+  read_through_pmsm_foc_svpwm_encoder_feedback: Read through PMSM, FOC, SVPWM, encoder
+    feedback, and control-loop tuning notes.
+  projects_and_work: Projects and Work
+  robotic_hand: Robotic Hand
+  exploring_dexterous_robotic_hands: Exploring Dexterous Robotic Hands
+  an_interest_in_dexterous_robotic_hands_from: An interest in dexterous robotic hands,
+    from joint actuators and sensor feedback to communication links and low-level
+    control, exploring how mechanics, electronics, and firmware work together.
+  about_this_interest: About this interest
+  motor_control: Motor Control
+  pmsm_foc_control_notes: PMSM / FOC Control Notes
+  notes_connecting_control_theory_with_debuggable_implementation: Notes connecting
+    control theory with debuggable implementation, from PMSM modeling and SVPWM to
+    encoder feedback and loop tuning.
+  read_notes: Read notes
+  firmware_workflow: Firmware Workflow
+  stm32_rtos_engineering: STM32 / RTOS Engineering
+  practical_notes_on_bootloaderiap_freertos_cmake_vs: Practical notes on Bootloader/IAP,
+    FreeRTOS, CMake, VS Code, and low-level C details for maintainable firmware projects.
+  view_practice: View practice
+  learning_paths_36: Learning Paths
+  start_here_37: Start here
+  featured_posts: Featured Posts
+  bootloader_and_iap_upgrade: Bootloader and IAP Upgrade
+  a_complete_mcu_firmware_upgrade_path_from: A complete MCU firmware upgrade path
+    from boot flow and flash layout to application jumps.
+  from_transfer_functions_to_state_space: From Transfer Functions to State Space
+  a_pmsmcentered_note_on_how_control_theory: A PMSM-centered note on how control theory
+    tools support real system analysis.
+  understanding_freertos_correctly: Understanding FreeRTOS Correctly
+  understanding_rtos_from_tasks_scheduling_resources_and: Understanding RTOS from
+    tasks, scheduling, resources, and engineering problems instead of API lists.
+  toolchain: Toolchain
+  vs_code_cmake_workflow: VS Code + CMake Workflow
+  a_portable_embedded_workflow_that_reduces_dependence: A portable embedded workflow
+    that reduces dependence on a single IDE or vendor project format.
+  recent_posts: Recent Posts
+  photography_preview: Photography Preview
+  make_it_work_make_it_better: Make it work. Make it better.
+site:
+  tagline: Engineering Practice and Reflections Along the Way
+  description: 'The personal site of Haitao Li: embedded systems, motor control, dexterous
+    robotic hands, and reflections on learning, work, and life.'
+language:
+  label: Language
+  unavailable: Translation unavailable
+photograph:
+  i_enjoy_capturing_moments_light_and_scenes: "I enjoy capturing moments, light, and
+    scenes from my daily life.  \nThis page collects some of my favorite photos.\n\n---"

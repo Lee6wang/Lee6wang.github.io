@@ -1,0 +1,68 @@
+---
+home:
+  exploring_whats_next: 探索进行中
+  dexterous_robotic_hands_embedded_systems_motor_control: 嵌入式系统 / 电机控制 / 机器人
+  i_am_haitao_li_interested_in_embedded: 我是 Haitao Li，关注嵌入式系统、电机控制与机器人灵巧手。目前，我正在重新梳理自己的兴趣与目标，思考下一阶段的学习、工作和生活方向。这里记录我的技术笔记、动手实践，以及沿途的观察与思考。
+  projects: 项目实践
+  technical_writing: 技术文章
+  about: 关于我
+  now: 近况
+  understand_the_system_bring_ideas_to_life: 从底层理解，让想法运行。
+  notes_amp_reflections: 技术与生活笔记
+  learning_paths: 专题学习路径
+  life_through_a_lens: 镜头之外的生活
+  start_here: 从这里开始读
+  profile: 个人资料
+  if_you_want_to_know_me: 如果你想了解我
+  start_with_my_background_interests_and_current: 从个人背景、研究方向和正在做的事情开始，快速了解这个站点背后的人。
+  if_you_want_the_current_picture: 如果你想知道近况
+  this_page_records_what_i_am_focused: 这里记录我最近关注的问题、正在整理的内容，以及欢迎交流的方向。
+  embedded: 嵌入式
+  if_you_are_learning_embedded_systems: 如果你在学嵌入式
+  start_from_freertos_bootloader_stm32_and_practical: 可以从 FreeRTOS、Bootloader、STM32
+    和工程工具链笔记进入。
+  control: 控制
+  if_you_care_about_motor_control: 如果你关注电机控制
+  read_through_pmsm_foc_svpwm_encoder_feedback: 从 PMSM、FOC、SVPWM、编码器测角和控制环整定开始读。
+  projects_and_work: 项目实践
+  robotic_hand: 灵巧手
+  exploring_dexterous_robotic_hands: 机器人灵巧手探索
+  an_interest_in_dexterous_robotic_hands_from: 将机器人灵巧手作为技术兴趣，关注关节执行器、传感反馈、通信链路与底层控制，探索机械、电子和固件如何协同工作。
+  about_this_interest: 了解方向
+  motor_control: 电机控制
+  pmsm_foc_control_notes: PMSM / FOC 控制笔记
+  notes_connecting_control_theory_with_debuggable_implementation: 从电机建模、SVPWM、编码器测角到电流环和带宽理解，连接控制理论与可调试实现。
+  read_notes: 阅读笔记
+  firmware_workflow: 固件工作流
+  stm32_rtos_engineering: STM32 / RTOS 工程实践
+  practical_notes_on_bootloaderiap_freertos_cmake_vs: 整理 Bootloader/IAP、FreeRTOS、CMake、VS
+    Code 和底层 C 语言细节，服务长期可维护项目。
+  view_practice: 查看实践
+  learning_paths_36: 专题路径
+  start_here_37: 从这里开始
+  featured_posts: 精选文章
+  bootloader_and_iap_upgrade: Bootloader 与 IAP 升级方案
+  a_complete_mcu_firmware_upgrade_path_from: 从启动流程、Flash 分区到应用跳转，梳理 MCU 固件升级的完整工程路径。
+  from_transfer_functions_to_state_space: 从传递函数走向状态空间
+  a_pmsmcentered_note_on_how_control_theory: 以永磁同步电机为例，理解控制理论工具如何服务真实系统分析。
+  understanding_freertos_correctly: 如何正确理解 FreeRTOS
+  understanding_rtos_from_tasks_scheduling_resources_and: 不从 API 清单开始，而是从任务、调度、资源和工程问题理解
+    RTOS。
+  toolchain: 工具链
+  vs_code_cmake_workflow: VS Code + CMake 嵌入式工作流
+  a_portable_embedded_workflow_that_reduces_dependence: 面向嵌入式项目的通用开发流程，减少对单一 IDE 和厂商工程的依赖。
+  recent_posts: 最近文章
+  photography_preview: 摄影预览
+  make_it_work_make_it_better: 先求可行，再臻完善。
+site:
+  tagline: 工程实践与沿途思考
+  description: Haitao Li 的个人主页，记录嵌入式系统、电机控制与机器人灵巧手的技术探索，以及学习、工作和生活中的思考。
+language:
+  label: 语言
+  unavailable: 暂无对应译文
+photograph:
+  i_enjoy_capturing_moments_light_and_scenes: |-
+    我喜欢捕捉日常生活中的瞬间、光线和场景。
+    这个页面收集了一些我喜欢的照片。
+
+    ---

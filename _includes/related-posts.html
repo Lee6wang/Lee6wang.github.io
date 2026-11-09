@@ -72,8 +72,7 @@
 {% if relate_posts.size > 0 %}
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">
-      <span class="i18n-inline" data-i18n-lang="zh">{{- site.data.locales[include.lang].post.relate_posts -}}</span>
-      <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Related Posts</span>
+      {{- site.data.locales[include.lang].post.relate_posts -}}
     </h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       {% for post in relate_posts %}
@@ -82,16 +81,10 @@
             <div class="card-body">
               {% include datetime.html date=post.date lang=include.lang %}
               <h4 class="pt-0 my-2">
-                <span class="i18n-inline" data-i18n-lang="zh">{{ post.title }}</span>
-                <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">
-                  {{- post.title_en | default: post.title -}}
-                </span>
+                {{ post.title }}
               </h4>
               <div class="text-muted">
-                <p class="i18n-block" data-i18n-lang="zh">{% include post-summary.html %}</p>
-                <p class="i18n-block" data-i18n-lang="en" hidden aria-hidden="true">
-                  Open the related article to read its English version.
-                </p>
+                <p>{% include post-summary.html %}</p>
               </div>
             </div>
           </a>
