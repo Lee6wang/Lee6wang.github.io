@@ -12,9 +12,11 @@ permalink: /now/
 
 # 近况
 
-更新于 2026-05-18。
+更新于 2026-11-09。
 
-我目前正在全职推进 **机器人灵巧手** 方向的创业，重点关注关节执行器、嵌入式控制、电机驱动、传感反馈和工程可靠性。这个阶段我更关心能长期迭代的系统能力，而不是单点炫技。
+最近，我正在给自己一些时间，思考未来想做什么，以及希望怎样安排工作与生活。有些问题还没有明确答案，我也在尝试通过具体的学习和实践，更好地了解自己的兴趣与选择。
+
+技术上，我仍然关注嵌入式系统、电机控制与机器人灵巧手，也会继续整理过去的笔记，记录新的尝试。
 
 ## 最近关注
 
@@ -33,7 +35,7 @@ permalink: /now/
 
 ## 欢迎交流
 
-如果你也在做机器人、灵巧手、执行器、电机控制、嵌入式系统或硬件创业相关方向，欢迎联系我。技术讨论、工程经验交流、项目合作、长期同行者之间的互相认识，都可以从一封邮件或一次简单的交流开始。
+如果你也对机器人、灵巧手、执行器、电机控制或嵌入式系统感兴趣，欢迎联系我。技术讨论、工程经验交流、项目交流、长期同行者之间的互相认识，都可以从一封邮件或一次简单的交流开始。
 
 你可以通过侧边栏的 GitHub、邮箱或微信二维码联系我。
 
@@ -43,9 +45,11 @@ permalink: /now/
 
 # Now
 
-Updated on 2026-05-18.
+Updated on 2026-11-09.
 
-I am currently working full-time on a **dexterous robotic hand** startup, with a focus on joint actuators, embedded control, motor drives, sensor feedback, and engineering reliability. At this stage, I care more about system capabilities that can keep improving than about isolated demonstrations.
+Recently, I have been giving myself some time to think about what I want to do next and how I would like to shape my work and life. Some questions do not yet have clear answers, and I am using learning and hands-on practice to better understand my interests and choices.
+
+On the technical side, I remain interested in embedded systems, motor control, and dexterous robotic hands. I will also continue organizing past notes and recording new experiments.
 
 ## Current Focus
 
@@ -64,7 +68,7 @@ I am currently working full-time on a **dexterous robotic hand** startup, with a
 
 ## Open To Conversations
 
-If you are working on robotics, dexterous hands, actuators, motor control, embedded systems, or hardware startups, feel free to reach out. Technical discussion, engineering experience sharing, collaboration ideas, and simply getting to know people on similar paths are all welcome.
+If you are interested in robotics, dexterous hands, actuators, motor control, or embedded systems, feel free to reach out. Technical discussions, sharing engineering and project experiences, and simply getting to know people on similar paths are all welcome.
 
 You can contact me through GitHub, email, or the WeChat QR code in the sidebar.
 

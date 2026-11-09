@@ -2,7 +2,7 @@
 layout: page
 title: 首页
 title_en: Home
-description: Haitao Li 的个人主页，记录机器人灵巧手、嵌入式系统、电机控制和工程工具链实践。
+description: Haitao Li 的个人主页，记录嵌入式系统、电机控制与机器人灵巧手的技术探索，以及学习、工作和生活中的思考。
 permalink: /
 ---
 
@@ -15,11 +15,11 @@ permalink: /
   <h1>Haitao Li</h1>
 
   <div class="i18n-block" data-i18n-lang="zh">
-    我是 Haitao Li，正在全职推进机器人灵巧手方向创业，关注嵌入式系统、电机控制与执行器工程。这个站点整理可公开的项目实践、调试记录和技术笔记，记录从硬件接口到固件、控制算法和工具链的系统化实现。
+    我是 Haitao Li，关注嵌入式系统、电机控制与机器人灵巧手。目前，我正在重新梳理自己的兴趣与目标，思考下一阶段的学习、工作和生活方向。这里记录我的技术笔记、动手实践，以及沿途的观察与思考。
   </div>
 
   <div class="i18n-block" data-i18n-lang="en" hidden aria-hidden="true">
-    I am Haitao Li, working full-time on a dexterous robotic hand startup, with a focus on embedded systems, motor control, and actuator engineering. This site collects public project notes, debugging records, and technical writing across hardware interfaces, firmware, control algorithms, and engineering toolchains.
+    I am Haitao Li, interested in embedded systems, motor control, and dexterous robotic hands. I am currently taking time to reflect on my interests and goals, and to explore what comes next in learning, work, and life. This site brings together my technical notes, hands-on experiments, and observations and reflections along the way.
   </div>
 
   <div class="home-actions">
@@ -125,17 +125,17 @@ permalink: /
         <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Robotic Hand</span>
       </p>
       <h2>
-        <span class="i18n-inline" data-i18n-lang="zh">灵巧手嵌入式系统</span>
-        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Dexterous Hand Embedded System</span>
+        <span class="i18n-inline" data-i18n-lang="zh">机器人灵巧手探索</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Exploring Dexterous Robotic Hands</span>
       </h2>
       <p>
-        <span class="i18n-inline" data-i18n-lang="zh">围绕关节执行器、传感采集、通信链路和系统调试，沉淀可复用的底层控制与工程验证方法。</span>
-        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">Embedded control work around joint actuators, sensing, communication links, and system debugging, summarized at a non-sensitive level.</span>
+        <span class="i18n-inline" data-i18n-lang="zh">将机器人灵巧手作为技术兴趣，关注关节执行器、传感反馈、通信链路与底层控制，探索机械、电子和固件如何协同工作。</span>
+        <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">An interest in dexterous robotic hands, from joint actuators and sensor feedback to communication links and low-level control, exploring how mechanics, electronics, and firmware work together.</span>
       </p>
       <div class="home-card-links">
         <a href="{{ '/about/' | relative_url }}">
           <span class="i18n-inline" data-i18n-lang="zh">了解方向</span>
-          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">About the work</span>
+          <span class="i18n-inline" data-i18n-lang="en" hidden aria-hidden="true">About this interest</span>
         </a>
       </div>
     </article>

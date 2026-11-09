@@ -10,13 +10,13 @@
     "title": {{ site.title | jsonify }},
     "tagline": {
       "zh": {{ site.tagline | jsonify }},
-      "en": "Dexterous Robotic Hands and Embedded Engineering"
+      "en": "Engineering Practice and Reflections Along the Way"
     }
   },
   "paths": {
     "{{ '/' | relative_url }}": {
-      "zh": "机器人灵巧手与嵌入式工程实践",
-      "en": "Robotics and Embedded Engineering"
+      "zh": "工程实践与沿途思考",
+      "en": "Engineering Practice and Reflections Along the Way"
     }{% for tab in site.tabs %},
     "{{ tab.url | relative_url }}": {
       "zh": {{ tab.title_zh | default: tab.title | jsonify }},

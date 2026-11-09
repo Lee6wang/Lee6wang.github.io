@@ -16,10 +16,10 @@ timezone: Asia/Shanghai
 
 title: Haitao Li # the main title
 
-tagline: 机器人灵巧手与嵌入式工程实践 # it will display as the subtitle
+tagline: 工程实践与沿途思考 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Haitao Li 的个人主页，记录机器人灵巧手、嵌入式系统、电机控制和工程工具链实践。
+  Haitao Li 的个人主页，记录嵌入式系统、电机控制与机器人灵巧手的技术探索，以及学习、工作和生活中的思考。
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
