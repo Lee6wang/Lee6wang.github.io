@@ -11,6 +11,39 @@
     /* Storage may be unavailable; Chirpy's system theme remains usable. */
   }
   window.siteBaseUrl = {{ site.baseurl | default: '' | jsonify }};
+
+  /* Decide before first paint; both languages share this tab's session. */
+  (() => {
+    const root = document.documentElement;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    try {
+      if (sessionStorage.getItem('lab-entry-seen')) return;
+      sessionStorage.setItem('lab-entry-seen', 'true');
+    } catch (error) {
+      /* Skip the effect when we cannot reliably remember the visit. */
+      return;
+    }
+    if (motion.matches || document.hidden) return;
+
+    const finish = () => {
+      root.classList.remove('site-entering');
+      clearTimeout(fallback);
+      document.removeEventListener('animationend', onEnd);
+      window.removeEventListener('pagehide', finish);
+      document.removeEventListener('visibilitychange', onVisibility);
+      motion.removeEventListener('change', finish);
+    };
+    const onEnd = (event) => {
+      if (event.animationName === 'site-entry-dismiss' && event.target.id === 'site-entry') finish();
+    };
+    const onVisibility = () => { if (document.hidden) finish(); };
+    const fallback = setTimeout(finish, 2200);
+    document.addEventListener('animationend', onEnd);
+    window.addEventListener('pagehide', finish);
+    document.addEventListener('visibilitychange', onVisibility);
+    motion.addEventListener('change', finish);
+    root.classList.add('site-entering');
+  })();
 </script>
 
 {% for entry in page.language_versions %}

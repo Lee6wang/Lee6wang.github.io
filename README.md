@@ -31,6 +31,8 @@ The root sitemap contains both languages. Each page has its own canonical URL an
 
 ## Theme overrides
 
+The first page opened in a tab plays a 1.6-second lightning-and-reveal entrance, with a branching green arc extending from the center, flowing green character trails, a soft scanning sweep, and a brief name decode on the homepage. Character trails fade before the entrance ends; mobile screens use half as many columns. A shared `sessionStorage` flag prevents replay on refresh, navigation, or language changes in that tab. Reduced motion, background tabs, and unavailable storage skip the effect. Closing the tab ends the session (browser session restoration may preserve it). The effect is decorative and does not block interaction.
+
 `_layouts/default.html` follows Chirpy 7.6 with one body-start hook for the background and language switch. Keep the switch outside the cached footer. `assets/js/service-worker.js` is staged at the theme's worker source path to preserve theme registration while isolating caches. Review these overrides when upgrading Chirpy.
 
 ## License

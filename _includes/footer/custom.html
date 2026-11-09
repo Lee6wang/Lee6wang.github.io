@@ -1,3 +1,17 @@
+<div id="site-entry" aria-hidden="true">
+  <span class="site-entry-panel site-entry-top"></span>
+  <span class="site-entry-panel site-entry-bottom"></span>
+  <div class="site-entry-codefield">
+    {% for column in (0..23) %}
+      <span class="site-entry-stream" style="--column: {{ column }}; --drift-delay: -{{ column | times: 719 | modulo: 2400 }}ms;">{% cycle 'entry-code': 'F7A01X9C4R8E2B6D5K3M0', '01SYS8A4F2C9E6B3D7X50', 'C4E9B2A7F0D5R1K8M3X6', '8B3D0F6A1C5E9X2R7K40' %}</span>
+    {% endfor %}
+  </div>
+  <svg class="site-entry-bolt" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+    <path class="site-entry-bolt-core" d="M0 64L70 57L98 72L154 44L183 62L246 54L278 79L329 51L365 60L410 32L443 68L501 53L533 82L586 48L621 65L678 40L720 62L762 49L799 78L851 42L889 61L940 50L977 85L1023 56L1068 67L1102 35L1141 60L1198 48L1232 74L1281 52L1320 65L1373 49L1440 61"/>
+    <path class="site-entry-bolt-branches" d="M183 62L208 87L240 81L267 107M410 32L438 15L472 22L495 5M621 65L648 89L677 83L704 111M851 42L879 20L911 29L938 8M1068 67L1093 91L1125 85L1152 109M1281 52L1307 29L1340 35"/>
+  </svg>
+</div>
+
 {% if page.url == "/" %}
   <div id="home-bg"></div>
 {% else %}
